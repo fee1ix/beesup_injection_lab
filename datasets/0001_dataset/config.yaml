@@ -1,0 +1,11 @@
+type: dataset
+id: 1
+name: 0001_dataset
+path: /home/fboehning/fboehning/cluster_lab/datasets/0001_dataset
+parent_dir_path: /home/fboehning/fboehning/cluster_lab/datasets
+parent_lab_path: /home/fboehning/fboehning/cluster_lab
+datetime_init: 2024-11-06 08:37:37.058916+01:00
+remarks: basic knowledge_df from wildbienen_db, no embeddings
+dir_name: datasets
+lab_name: injection_lab
+rel_path: injection_lab/datasets/0001_dataset
