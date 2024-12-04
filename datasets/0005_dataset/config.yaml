@@ -1,0 +1,38 @@
+type: dataset
+id: 5
+name: 0005_dataset
+path: /home/fboehning/fboehning/cluster_lab/datasets/0005_dataset
+parent_dir_path: /home/fboehning/fboehning/cluster_lab/datasets
+parent_lab_path: /home/fboehning/fboehning/cluster_lab
+datetime_init: 2024-11-25 10:24:47.771911+01:00
+emb_model_config:
+  type: emb_model
+  id: 4
+  name: 0004_emb_model
+  path: /home/fboehning/fboehning/cluster_lab/emb_models/0004_emb_model
+  parent_dir_path: /home/fboehning/fboehning/cluster_lab/emb_models
+  parent_lab_path: /home/fboehning/fboehning/cluster_lab
+  name_or_path: jinaai/jina-embeddings-v3
+  task: text-matching
+  datetime_init: 2024-11-25 10:23:29.400403+01:00
+  trust_remote_code: true
+  use_flash_attn: false
+  dir_name: emb_models
+  lab_name: injection_lab
+  rel_path: injection_lab/emb_models/0004_emb_model
+parent_config:
+  type: dataset
+  id: 1
+  name: 0001_dataset
+  path: /home/fboehning/fboehning/cluster_lab/datasets/0001_dataset
+  parent_dir_path: /home/fboehning/fboehning/cluster_lab/datasets
+  parent_lab_path: /home/fboehning/fboehning/cluster_lab
+  datetime_init: 2024-11-06 08:37:37.058916+01:00
+  remarks: basic knowledge_df from wildbienen_db, no embeddings
+  dir_name: datasets
+  lab_name: injection_lab
+  rel_path: injection_lab/datasets/0001_dataset
+remarks: knowledge dataset with embeddings in subject, predicate and object variations
+dir_name: datasets
+lab_name: injection_lab
+rel_path: injection_lab/datasets/0005_dataset

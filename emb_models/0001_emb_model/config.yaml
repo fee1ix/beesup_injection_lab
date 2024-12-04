@@ -1,0 +1,14 @@
+type: emb_model
+id: 1
+name: 0001_emb_model
+path: /home/fboehning/fboehning/cluster_lab/emb_models/0001_emb_model
+parent_dir_path: /home/fboehning/fboehning/cluster_lab/emb_models
+parent_lab_path: /home/fboehning/fboehning/cluster_lab
+name_or_path: jinaai/jina-embeddings-v3
+datetime_init: 2024-11-06 08:42:21.617932+01:00
+trust_remote_code: true
+use_flash_attn: false
+task: separation
+dir_name: emb_models
+lab_name: injection_lab
+rel_path: injection_lab/emb_models/0001_emb_model
