@@ -1,0 +1,22 @@
+type: emb_model
+id: 5
+name: 0005_emb_model
+path: /home/fboehning/fboehning/cluster_lab/emb_models/0005_emb_model
+parent_dir_path: /home/fboehning/fboehning/cluster_lab/emb_models
+parent_lab_path: /home/fboehning/fboehning/cluster_lab
+name_or_path: nvidia/NV-Embed-v2
+encode_config:
+  instruction: 'Instruct: Retrieve the a suitable header for the chunk.
+
+    Chunk: '
+  max_length: 32768
+timestamp_init: 2024-11-26_15-42-50
+bnb_config:
+  load_in_4bit: true
+  bnb_4bit_use_double_quant: true
+  bnb_4bit_quant_type: nf4
+model_load_config:
+  trust_remote_code: true
+dir_name: emb_models
+lab_name: injection_lab
+rel_path: injection_lab/emb_models/0005_emb_model
