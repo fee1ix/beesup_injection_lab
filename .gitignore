@@ -1,4 +1,5 @@
 *.pkl
 *.db
 *.log
+*.html
 events.out.tfevents*
