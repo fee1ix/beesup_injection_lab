@@ -1,0 +1,343 @@
+type: injection_experiment
+id: 4
+name: 0004_injection_experiment
+dir_name: injection_experiments
+lab_name: injection_lab
+rel_path: injection_lab/injection_experiments/0004_injection_experiment
+done: true
+seed: 55
+do_eval_base_model: true
+do_train: true
+llm_config:
+  type: llm_pipeline
+  id: 1
+  name: 0001_llm_pipeline
+  dir_name: llm_pipelines
+  lab_name: injection_lab
+  rel_path: injection_lab/llm_pipelines/0001_llm_pipeline
+  name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+  pipeline_args:
+    return_full_text: false
+    clean_up_tokenization_spaces: true
+  bnb_config:
+    load_in_4bit: true
+    bnb_4bit_use_double_quant: true
+    bnb_4bit_quant_type: nf4
+  inference_tokenizer_config:
+    padding_side: left
+    padding: longest
+    add_special_tokens: true
+    max_length: 8192
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  training_tokenizer_config:
+    padding_side: right
+    padding: longest
+    add_special_tokens: true
+    max_length: 8192
+    pad_token: <|end_of_text|>
+    pad_token_id: 128001
+  generation_config:
+    return_dict_in_generate: false
+    max_new_tokens: 4096
+    max_time: 1200
+    stop_strings: null
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  base_model: Meta-Llama-3.1-8B-Instruct
+  timestamp_init: 2025-02-03_13-50-38
+trainer_config:
+  type: trainer
+  id: 1
+  name: 0001_lora_trainer
+  dir_name: lora_trainers
+  lab_name: injection_lab
+  rel_path: injection_lab/lora_trainers/0001_lora_trainer
+  trainer_args:
+    seed: 55
+    auto_find_batch_size: false
+    per_device_train_batch_size: 4
+    gradient_accumulation_steps: 1
+    gradient_checkpointing_kwargs:
+      use_reentrant: false
+    warmup_steps: 0
+    num_train_epochs: 3
+    learning_rate: 0.0002
+    output_dir: /home/fboehning/fboehning/injection_lab/injection_experiments/0004_injection_experiment
+    optim: paged_adamw_8bit
+    per_device_eval_batch_size: 16
+    save_strategy: 'no'
+    logging_strategy: steps
+    logging_steps: 1
+    logging_first_step: true
+    do_train: true
+    do_eval: false
+    eval_strategy: 'no'
+    prediction_loss_only: false
+    fp16: false
+  data_collator_config:
+    padding: longest
+    label_pad_token_id: -100
+  lora_config:
+    r: 32
+    lora_alpha: 3
+    use_rslora: true
+    target_modules: all-linear
+    lora_dropout: 0.05
+    bias: none
+    task_type: CAUSAL_L
+  sft_trainer_args:
+    max_seq_length: 4096
+    packing: false
+  timestamp_init: 2025-02-03_13-44-42
+eval_configs:
+- type: evaluation_pipeline
+  id: 1
+  name: 0001_evaluation_pipeline
+  dir_name: evaluation_pipelines
+  lab_name: injection_lab
+  rel_path: injection_lab/evaluation_pipelines/0001_evaluation_pipeline
+  subtype: mcq
+  llm_config:
+    type: llm_pipeline
+    id: 1
+    name: 0001_llm_pipeline
+    dir_name: llm_pipelines
+    lab_name: injection_lab
+    rel_path: injection_lab/llm_pipelines/0001_llm_pipeline
+    name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+    pipeline_args:
+      return_full_text: false
+      clean_up_tokenization_spaces: true
+    bnb_config:
+      load_in_4bit: true
+      bnb_4bit_use_double_quant: true
+      bnb_4bit_quant_type: nf4
+    inference_tokenizer_config:
+      padding_side: left
+      padding: longest
+      add_special_tokens: true
+      max_length: 8192
+      pad_token: <|begin_of_text|>
+      pad_token_id: 128000
+    training_tokenizer_config:
+      padding_side: right
+      padding: longest
+      add_special_tokens: true
+      max_length: 8192
+      pad_token: <|end_of_text|>
+      pad_token_id: 128001
+    generation_config:
+      return_dict_in_generate: false
+      max_new_tokens: 15
+      max_time: 600
+      stop_strings:
+      - '
+
+        '
+      pad_token: <|begin_of_text|>
+      pad_token_id: 128000
+    base_model: Meta-Llama-3.1-8B-Instruct
+    timestamp_init: 2025-02-03_10-18-57
+  timestamp_init: 2025-02-03_10-52-26
+- type: evaluation_pipeline
+  id: 2
+  name: 0002_evaluation_pipeline
+  dir_name: evaluation_pipelines
+  lab_name: injection_lab
+  rel_path: injection_lab/evaluation_pipelines/0002_evaluation_pipeline
+  subtype: qdq
+  llm_config:
+    type: llm_pipeline
+    id: 2
+    name: 0002_llm_pipeline
+    dir_name: llm_pipelines
+    lab_name: injection_lab
+    rel_path: injection_lab/llm_pipelines/0002_llm_pipeline
+    name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+    pipeline_args:
+      return_full_text: false
+      clean_up_tokenization_spaces: true
+    bnb_config:
+      load_in_4bit: true
+      bnb_4bit_use_double_quant: true
+      bnb_4bit_quant_type: nf4
+    inference_tokenizer_config:
+      padding_side: left
+      padding: longest
+      add_special_tokens: true
+      max_length: 8192
+      pad_token: <|begin_of_text|>
+      pad_token_id: 128000
+    training_tokenizer_config:
+      padding_side: right
+      padding: longest
+      add_special_tokens: true
+      max_length: 8192
+      pad_token: <|end_of_text|>
+      pad_token_id: 128001
+    generation_config:
+      return_dict_in_generate: false
+      max_new_tokens: 750
+      max_time: 600
+      stop_strings:
+      - '
+
+        '
+      pad_token: <|begin_of_text|>
+      pad_token_id: 128000
+    base_model: Meta-Llama-3.1-8B-Instruct
+    timestamp_init: 2025-02-04_11-00-02
+  timestamp_init: 2025-02-04_14-35-06
+timestamp_init: 2025-02-04_14-59-54
+dataset_config:
+  type: dataset
+  id: 7
+  name: 0007_dataset
+  dir_name: datasets
+  lab_name: injection_lab
+  rel_path: injection_lab/datasets/0007_dataset
+  remarks: 10 instruction finetuning samples for testing
+  emb_model_config: null
+  parent_config:
+    type: dataset
+    id: 6
+    name: 0006_dataset
+    dir_name: datasets
+    lab_name: injection_lab
+    rel_path: injection_lab/datasets/0006_dataset
+    remarks: knowledge dataset with embeddings in subject, predicate and object variations
+    emb_model_config:
+      type: emb_model
+      id: 5
+      name: 0005_emb_model
+      path: /home/fboehning/fboehning/cluster_lab/emb_models/0005_emb_model
+      parent_dir_path: /home/fboehning/fboehning/cluster_lab/emb_models
+      parent_lab_path: /home/fboehning/fboehning/cluster_lab
+      name_or_path: nvidia/NV-Embed-v2
+      encode_config:
+        instruction: 'Instruct: Retrieve the a suitable header for the chunk.
+
+          Chunk: '
+        max_length: 32768
+      timestamp_init: 2024-11-26_15-42-50
+      bnb_config:
+        load_in_4bit: true
+        bnb_4bit_use_double_quant: true
+        bnb_4bit_quant_type: nf4
+      model_load_config:
+        trust_remote_code: true
+      dir_name: emb_models
+      lab_name: injection_lab
+      rel_path: injection_lab/emb_models/0005_emb_model
+    path: /home/fboehning/fboehning/cluster_lab/datasets/0006_dataset
+    parent_dir_path: /home/fboehning/fboehning/cluster_lab/datasets
+    parent_lab_path: /home/fboehning/fboehning/cluster_lab
+    timestamp_init: 2024-11-26_16-41-51
+  timestamp_init: 2025-02-03_13-02-25
+  tax_config:
+    type: taxomizing_pipeline
+    id: 1
+    name: 0001_taxomizing_pipeline
+    dir_name: taxomizing_pipelines
+    lab_name: injection_lab
+    rel_path: injection_lab/taxomizing_pipelines/0001_taxomizing_pipeline
+    dist_flattening_config:
+      include_leaves: false
+      use_kneepoint: true
+      use_std: false
+      std_factor: 1.0
+    ddist_flattening_config:
+      include_leaves: false
+      use_kneepoint: true
+      use_std: false
+      std_factor: 1.0
+    linkage_args:
+      method: ward
+      optimal_ordering: false
+    llm_config:
+      type: llm_pipeline
+      id: 1
+      name: 0001_llm_pipeline
+      dir_name: llm_pipelines
+      lab_name: injection_lab
+      rel_path: injection_lab/llm_pipelines/0001_llm_pipeline
+      name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+      pipeline_args:
+        return_full_text: false
+        clean_up_tokenization_spaces: true
+      bnb_config:
+        load_in_4bit: true
+        bnb_4bit_use_double_quant: true
+        bnb_4bit_quant_type: nf4
+      inference_tokenizer_config:
+        padding_side: left
+        padding: longest
+        add_special_tokens: true
+        max_length: 8192
+        pad_token: <|begin_of_text|>
+        pad_token_id: 128000
+      training_tokenizer_config:
+        padding_side: right
+        padding: longest
+        add_special_tokens: true
+        max_length: 8192
+        pad_token: <|end_of_text|>
+        pad_token_id: 128001
+      generation_config:
+        return_dict_in_generate: false
+        max_new_tokens: 4096
+        max_time: 1200
+        stop_strings: null
+        pad_token: <|begin_of_text|>
+        pad_token_id: 128000
+      base_model: Meta-Llama-3.1-8B-Instruct
+      timestamp_init: 2025-01-31_10-54-12
+    timestamp_init: 2025-01-31_09-13-53
+    flattening_info:
+      tree_before_flattening:
+        num_nodes: 6823
+        height: 127
+        num_root_children: 2
+        num_leaves: 3412
+        branching: 2.0
+        avg_degree: 1.0
+        avg_balance: 4.32
+        dia: 236
+        avg_depth: 19.63
+        width: 656
+      threshold_dist: 1.0657847231159745
+      tree_after_dist_flattening:
+        num_nodes: 3454
+        height: 9
+        num_root_children: 2
+        num_leaves: 3412
+        branching: 84.17
+        avg_degree: 1.0
+        avg_balance: 0.01
+        dia: 16
+        avg_depth: 5.24
+        width: 897
+      threshold_ddist: 3.4228244113502466
+      tree_after_ddist_flattening:
+        num_nodes: 3427
+        height: 4
+        num_root_children: 2
+        num_leaves: 3412
+        branching: 244.57
+        avg_degree: 1.0
+        avg_balance: 0.0
+        dia: 7
+        avg_depth: 3.35
+        width: 2210
+      tree_after_recover_leaf_parents:
+        num_nodes: 3429
+        height: 4
+        num_root_children: 2
+        num_leaves: 3412
+        branching: 214.12
+        avg_degree: 1.0
+        avg_balance: 0.0
+        dia: 7
+        avg_depth: 3.55
+        width: 1913

@@ -1,0 +1,42 @@
+type: lora_trainer
+id: 1
+name: 0001_lora_trainer
+dir_name: lora_trainers
+lab_name: injection_lab
+rel_path: injection_lab/lora_trainers/0001_lora_trainer
+trainer_args:
+  seed: 33
+  auto_find_batch_size: false
+  per_device_train_batch_size: 4
+  gradient_accumulation_steps: 1
+  gradient_checkpointing_kwargs:
+    use_reentrant: false
+  warmup_steps: 0
+  num_train_epochs: 12
+  learning_rate: 0.0002
+  output_dir: /home/fboehning/fboehning/injection_lab/lora_trainers/0001_lora_trainer
+  optim: paged_adamw_8bit
+  per_device_eval_batch_size: 16
+  save_strategy: 'no'
+  logging_strategy: steps
+  logging_steps: 1
+  logging_first_step: true
+  do_train: true
+  do_eval: true
+  eval_strategy: epoch
+  prediction_loss_only: false
+data_collator_config:
+  padding: longest
+  label_pad_token_id: -100
+lora_config:
+  r: 32
+  lora_alpha: 3
+  use_rslora: true
+  target_modules: all-linear
+  lora_dropout: 0.05
+  bias: none
+  task_type: CAUSAL_L
+sft_trainer_args:
+  max_seq_length: 4096
+  packing: false
+timestamp_init: 2025-02-03_13-44-42
