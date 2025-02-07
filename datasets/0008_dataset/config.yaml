@@ -4,7 +4,8 @@ name: 0008_dataset
 dir_name: datasets
 lab_name: injection_lab
 rel_path: injection_lab/datasets/0008_dataset
-remarks: 100 instruction finetuning samples for testing
+remarks: without toc, english system prompt, german query prompt
+n_rows: 3412
 emb_model_config: null
 parent_config:
   type: dataset
@@ -14,6 +15,7 @@ parent_config:
   lab_name: injection_lab
   rel_path: injection_lab/datasets/0006_dataset
   remarks: knowledge dataset with embeddings in subject, predicate and object variations
+  n_rows: null
   emb_model_config:
     type: emb_model
     id: 5
@@ -41,14 +43,14 @@ parent_config:
   parent_dir_path: /home/fboehning/fboehning/cluster_lab/datasets
   parent_lab_path: /home/fboehning/fboehning/cluster_lab
   timestamp_init: 2024-11-26_16-41-51
-timestamp_init: 2025-02-03_14-39-19
+timestamp_init: 2025-02-07_16-05-25
 tax_config:
-  type: taxomizing_pipeline
-  id: 1
-  name: 0001_taxomizing_pipeline
-  dir_name: taxomizing_pipelines
+  type: taxomizer
+  id: 2
+  name: 0002_taxomizer
+  dir_name: taxomizers
   lab_name: injection_lab
-  rel_path: injection_lab/taxomizing_pipelines/0001_taxomizing_pipeline
+  rel_path: injection_lab/taxomizers/0002_taxomizer
   dist_flattening_config:
     include_leaves: false
     use_kneepoint: true
@@ -99,8 +101,8 @@ tax_config:
       pad_token: <|begin_of_text|>
       pad_token_id: 128000
     base_model: Meta-Llama-3.1-8B-Instruct
-    timestamp_init: 2025-01-31_10-54-12
-  timestamp_init: 2025-01-31_09-13-53
+    timestamp_init: 2025-02-03_13-50-38
+  timestamp_init: 2025-02-07_09-32-56
   flattening_info:
     tree_before_flattening:
       num_nodes: 6823
