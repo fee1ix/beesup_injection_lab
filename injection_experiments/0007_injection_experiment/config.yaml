@@ -4,7 +4,7 @@ name: 0007_injection_experiment
 dir_name: injection_experiments
 lab_name: injection_lab
 rel_path: injection_lab/injection_experiments/0007_injection_experiment
-done: false
+done: true
 seed: 55
 do_eval_base_model: true
 do_train: true
@@ -449,3 +449,10 @@ dataset_config:
         dia: 7
         avg_depth: 3.55
         width: 1913
+timestamp_run: 2025-02-08_04-56-34
+lora_info:
+  n_trainable_params: 83886080
+  n_total_params: 8114147328
+  p_trainable_params: 0.010338249554642546
+  lora_scale: 0.5303300858899106
+timestamp_done: 2025-02-08_16-13-53
