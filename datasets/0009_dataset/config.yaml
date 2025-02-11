@@ -1,0 +1,11 @@
+type: dataset
+id: 9
+name: 0009_dataset
+dir_name: datasets
+lab_name: injection_lab
+rel_path: injection_lab/datasets/0009_dataset
+remarks: small set for testing
+n_rows: 10
+emb_model_config: null
+parent_config: null
+timestamp_init: 2025-02-11_15-16-52
