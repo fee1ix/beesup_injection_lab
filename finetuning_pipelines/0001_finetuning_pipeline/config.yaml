@@ -25,6 +25,7 @@ trainer_config:
   do_eval: true
   eval_strategy: epoch
   prediction_loss_only: false
+  remove_unused_columns: false
 data_collator_config:
   padding: longest
   label_pad_token_id: -100
@@ -37,6 +38,5 @@ lora_config:
   bias: none
   task_type: CAUSAL_L
 sft_config:
-  max_seq_length: 4096
   packing: false
 timestamp_init: 2025-02-11_15-18-42

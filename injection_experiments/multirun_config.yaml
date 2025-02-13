@@ -1,7 +1,6 @@
 framework_dirs:
 - /home/fboehning/fboehning
-module_path: /home/fboehning/fboehning/beesup_llm/experiment/injection_experiment.py
-script_path: /home/fboehning/fboehning/beesup_llm/experiment/multirun_script.py
+module_path: /home/fboehning/fboehning/beesup_llm/injection/injection_experiment.py
+script_path: /home/fboehning/fboehning/beesup_llm/injection/multirun_script.py
 experiment_dirs:
-- /home/fboehning/fboehning/injection_lab/injection_experiments/0006_injection_experiment
-- /home/fboehning/fboehning/injection_lab/injection_experiments/0007_injection_experiment
+- /home/fboehning/fboehning/injection_lab/injection_experiments/0008_injection_experiment

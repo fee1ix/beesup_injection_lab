@@ -28,7 +28,7 @@ warmup_steps: 0
 log_level: passive
 log_level_replica: warning
 log_on_each_node: true
-logging_dir: /home/fboehning/fboehning/injection_lab/injection_experiments/0008_injection_experiment/runs/Feb11_14-42-14_fbo-beesup-work
+logging_dir: /home/fboehning/fboehning/injection_lab/injection_experiments/0008_injection_experiment/runs/Feb13_12-24-36_fbo-beesup-work
 logging_strategy: steps
 logging_first_step: true
 logging_steps: 1
@@ -66,7 +66,7 @@ dataloader_prefetch_factor: null
 past_index: -1
 run_name: /home/fboehning/fboehning/injection_lab/injection_experiments/0008_injection_experiment
 disable_tqdm: false
-remove_unused_columns: true
+remove_unused_columns: false
 label_names: null
 load_best_model_at_end: false
 metric_for_best_model: null
@@ -108,12 +108,13 @@ resume_from_checkpoint: null
 hub_model_id: null
 hub_strategy: every_save
 hub_token: <HUB_TOKEN>
-hub_private_repo: false
+hub_private_repo: null
 hub_always_push: false
 gradient_checkpointing: false
 gradient_checkpointing_kwargs:
   use_reentrant: false
 include_inputs_for_metrics: false
+include_for_metrics: []
 eval_do_concat_batches: true
 fp16_backend: auto
 evaluation_strategy: null
@@ -137,8 +138,10 @@ neftune_noise_alpha: null
 optim_target_modules: null
 batch_eval_metrics: false
 eval_on_start: false
+use_liger_kernel: false
 eval_use_gather_object: false
-dataset_text_field: null
+average_tokens_across_devices: false
+dataset_text_field: text
 packing: false
 max_seq_length: 4096
 dataset_num_proc: null
@@ -148,3 +151,4 @@ dataset_kwargs: {}
 eval_packing: null
 num_of_sequences: 1024
 chars_per_token: <CHARS_PER_TOKEN>
+use_liger: false
