@@ -1,0 +1,44 @@
+type: finetuning_pipeline
+id: 3
+name: 0003_finetuning_pipeline
+dir_name: finetuning_pipelines
+lab_name: injection_lab
+rel_path: injection_lab/finetuning_pipelines/0003_finetuning_pipeline
+trainer_config:
+  seed: 33
+  auto_find_batch_size: false
+  per_device_train_batch_size: 4
+  gradient_accumulation_steps: 1
+  gradient_checkpointing_kwargs:
+    use_reentrant: false
+  warmup_steps: 0
+  num_train_epochs: 4
+  learning_rate: 0.0002
+  output_dir: /home/fboehning/fboehning/injection_lab/finetuning_pipelines/0003_finetuning_pipeline
+  optim: paged_adamw_8bit
+  per_device_eval_batch_size: 16
+  save_strategy: 'no'
+  logging_strategy: steps
+  logging_steps: 1
+  logging_first_step: true
+  do_train: true
+  do_eval: true
+  eval_strategy: epoch
+  prediction_loss_only: false
+  remove_unused_columns: false
+  report_to: none
+data_collator_config:
+  padding: longest
+  label_pad_token_id: -100
+lora_config:
+  r: 32
+  lora_alpha: 4
+  use_rslora: true
+  target_modules: all-linear
+  lora_dropout: 0.05
+  bias: none
+  task_type: CAUSAL_L
+sft_config:
+  max_seq_length: 4096
+  packing: false
+timestamp_init: 2025-02-17_11-35-20
