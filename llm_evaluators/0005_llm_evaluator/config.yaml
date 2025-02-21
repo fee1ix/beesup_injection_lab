@@ -5,7 +5,7 @@ dir_name: llm_evaluators
 lab_name: injection_lab
 rel_path: injection_lab/llm_evaluators/0005_llm_evaluator
 subtype: qdq
-remarks: qdq questions only for 'Wissenschaftlicher Name' target_attr
+remarks: qdq questions only for 'Wissenschaftlicher Name' target_attr, simplified to 'genus_species'
 n_rows: 27
 llm_config:
   type: llm_pipeline

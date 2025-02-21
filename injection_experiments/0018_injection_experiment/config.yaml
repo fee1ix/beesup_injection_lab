@@ -1,14 +1,15 @@
 type: injection_experiment
-id: 14
-name: 0014_injection_experiment
+id: 18
+name: 0018_injection_experiment
 dir_name: injection_experiments
 lab_name: injection_lab
-rel_path: injection_lab/injection_experiments/0014_injection_experiment
-done: true
+rel_path: injection_lab/injection_experiments/0018_injection_experiment
+done: false
 seed: 55
-do_eval_base_model: true
-do_finetuning: true
-remarks: tree in training + tree in beesup evaluators!
+do_eval_base_model: false
+do_eval_rag: true
+do_finetuning: false
+remarks: ''
 llm_config:
   type: llm_pipeline
   id: 1
@@ -60,9 +61,9 @@ ftn_config:
     gradient_checkpointing_kwargs:
       use_reentrant: false
     warmup_steps: 0
-    num_train_epochs: 20
+    num_train_epochs: 12
     learning_rate: 0.0002
-    output_dir: /home/fboehning/fboehning/injection_lab/injection_experiments/0014_injection_experiment
+    output_dir: /home/fboehning/fboehning/injection_lab/injection_experiments/0018_injection_experiment
     optim: paged_adamw_8bit
     per_device_eval_batch_size: 16
     save_strategy: 'no'
@@ -111,6 +112,7 @@ eval_configs:
   - question
   - choices
   - answer
+  - question_emb
   eval_epochs: []
   llm_config:
     type: llm_pipeline
@@ -167,6 +169,7 @@ eval_configs:
   - subject
   - choices
   - answer
+  - question_emb
   eval_epochs: []
   llm_config:
     type: llm_pipeline
@@ -215,12 +218,14 @@ eval_configs:
   lab_name: injection_lab
   rel_path: injection_lab/llm_evaluators/0005_llm_evaluator
   subtype: qdq
-  remarks: qdq questions only for 'Wissenschaftlicher Name' target_attr
+  remarks: qdq questions only for 'Wissenschaftlicher Name' target_attr, simplified
+    to 'genus_species'
   n_rows: 27
   columns:
   - question
   - target_attr
   - gold_items
+  - question_emb
   eval_epochs:
   - 0
   - 2
@@ -273,6 +278,7 @@ eval_configs:
     base_model: Meta-Llama-3.1-8B-Instruct
     timestamp_init: 2025-02-03_13-50-38
   timestamp_init: 2025-02-07_14-45-13
+  n_fewshots: 3
 - type: llm_evaluator
   id: 6
   name: 0006_llm_evaluator
@@ -290,6 +296,7 @@ eval_configs:
   - emb_col
   - question
   - answer
+  - question_emb
   eval_epochs:
   - 0
   - 2
@@ -342,16 +349,15 @@ eval_configs:
     base_model: Meta-Llama-3.1-8B-Instruct
     timestamp_init: 2025-02-03_13-50-38
   timestamp_init: 2025-02-07_15-51-29
-timestamp_init: 2025-02-17_15-15-04
+timestamp_init: 2025-02-21_15-42-45
 dataset_config:
   type: dataset
-  id: 10
-  name: 0010_dataset
+  id: 11
+  name: 0011_dataset
   dir_name: datasets
   lab_name: injection_lab
-  rel_path: injection_lab/datasets/0010_dataset
-  remarks: with toc in system prompt and branch in query prompt, english system prompt,
-    german query prompt
+  rel_path: injection_lab/datasets/0011_dataset
+  remarks: with toc, english system prompt, german query prompt
   n_rows: 3412
   emb_model_config: null
   parent_config:
@@ -390,7 +396,7 @@ dataset_config:
     parent_dir_path: /home/fboehning/fboehning/cluster_lab/datasets
     parent_lab_path: /home/fboehning/fboehning/cluster_lab
     timestamp_init: 2024-11-26_16-41-51
-  timestamp_init: 2025-02-17_11-09-26
+  timestamp_init: 2025-02-18_15-22-58
   tax_config:
     type: taxomizer
     id: 2
@@ -497,9 +503,3 @@ dataset_config:
         dia: 7
         avg_depth: 3.55
         width: 1913
-timestamp_run: 2025-02-17_15-15-43
-lora_info:
-  n_trainable_params: 83886080
-  n_total_params: 8114147328
-  p_trainable_params: 0.010338249554642546
-  lora_scale: 0.7071067811865475
