@@ -10,9 +10,12 @@ llm_config:
   generation_config:
     max_new_tokens: 4096
     max_time: 1200
-timestamp_init: 2025-02-25_15-35-37
-pre_trim_limit:
+selector_configs:
+- name: PreTrimLimit
   limit: 100
-fit_tokn_limit:
+- name: FitTokenLimit
   limit: 1000
-fit_knee_score: {}
+- name: FitKneeScore
+  curve: convex
+  direction: decreasing
+timestamp_init: 2025-02-27_10-47-12
