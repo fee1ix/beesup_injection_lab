@@ -1,0 +1,9 @@
+name: 0002_LlamaPipeline
+lab_name: injection_lab
+cls_parts:
+- BaseDirectory
+- BaseModelPipeline
+- LanguageModelPipeline
+- LlamaPipeline
+id: 2
+path: injection_lab/BaseDirectory/BaseModelPipeline/LanguageModelPipeline/LlamaPipeline/0002_LlamaPipeline

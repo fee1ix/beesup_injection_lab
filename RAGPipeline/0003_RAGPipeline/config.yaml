@@ -1,0 +1,6 @@
+name: 0003_RAGPipeline
+lab_name: injection_lab
+cls_parts:
+- RAGPipeline
+id: 3
+path: injection_lab/RAGPipeline/0003_RAGPipeline
