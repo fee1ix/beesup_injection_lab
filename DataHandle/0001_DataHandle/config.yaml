@@ -1,0 +1,18 @@
+id: 1
+name: 0001_DataHandle
+lab_name: injection_lab
+class_parts:
+- DataHandle
+module_path: labtools.data
+path: injection_lab/DataHandle/0001_DataHandle
+remarks: test
+df: {}
+n_rows: 10
+columns:
+- kidx
+- tidx
+- node_id
+- hpath
+- prompt_messages
+- gold_message
+- split

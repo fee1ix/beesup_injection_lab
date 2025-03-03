@@ -1,8 +1,0 @@
-name: 0004_RAGPipeline
-lab_name: injection_lab
-cls_parts:
-- RAGPipeline
-emb_col: spo
-chunk_col: spo
-id: 4
-path: injection_lab/RAGPipeline/0004_RAGPipeline

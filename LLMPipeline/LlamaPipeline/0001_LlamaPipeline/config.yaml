@@ -1,22 +1,33 @@
+id: 1
 name: 0001_LlamaPipeline
 lab_name: injection_lab
-cls_parts:
+class_parts:
 - LLMPipeline
 - LlamaPipeline
-id: 1
+module_path: beesup_llm.model_pipelines
 path: injection_lab/LLMPipeline/LlamaPipeline/0001_LlamaPipeline
 name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
 generation_config:
   return_dict_in_generate: false
-  max_new_tokens: 1000
   max_time: 600
+  do_sample: false
+  stop_strings:
+  - Hello
+  max_new_tokens: 100
   pad_token: <|begin_of_text|>
   pad_token_id: 128000
 inference_tokenizer_config:
+  padding: longest
+  padding_side: left
   max_length: 8192
   pad_token: <|begin_of_text|>
   pad_token_id: 128000
 training_tokenizer_config:
+  padding: longest
+  padding_side: right
   max_length: 8192
   pad_token: <|end_of_text|>
   pad_token_id: 128001
+pipeline_args:
+  return_full_text: false
+  clean_up_tokenization_spaces: true
