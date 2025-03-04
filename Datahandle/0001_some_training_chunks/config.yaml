@@ -1,12 +1,10 @@
 id: 1
-name: 0001_DataHandle
+label: some_training_chunks
 lab_name: injection_lab
 class_parts:
-- DataHandle
+- Datahandle
 module_path: labtools.data
-path: injection_lab/DataHandle/0001_DataHandle
-remarks: test
-df: {}
+remarks: just a test
 n_rows: 10
 columns:
 - kidx
