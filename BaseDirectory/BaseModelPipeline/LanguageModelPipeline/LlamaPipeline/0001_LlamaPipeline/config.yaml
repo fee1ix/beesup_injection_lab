@@ -1,9 +1,0 @@
-name: 0001_LlamaPipeline
-lab_name: injection_lab
-cls_parts:
-- BaseDirectory
-- BaseModelPipeline
-- LanguageModelPipeline
-- LlamaPipeline
-id: 1
-path: injection_lab/BaseDirectory/BaseModelPipeline/LanguageModelPipeline/LlamaPipeline/0001_LlamaPipeline
