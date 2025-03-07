@@ -1,0 +1,14 @@
+id: 1
+label: bees
+lab_name: injection_lab
+class_parts:
+- Evaluator
+- MCQEvaluator
+module_path: beesup_llm.injection.evaluator
+eval_df:
+  type: DataFrame
+  filename: eval_df.pkl
+  n_rows: 8
+  columns: sidx, kidx, tidx, add_kidc, add_tidc, emb_col, question, choices, answer,
+    question_emb
+  overwrite: false
