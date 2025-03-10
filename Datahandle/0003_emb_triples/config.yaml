@@ -1,0 +1,24 @@
+id: 3
+label: emb_triples
+lab_name: injection_lab
+class_parts:
+- Datahandle
+module_path: labtools.datahandle
+remarks: s,p,o emb variations
+emb_pipe_config:
+  id: 1
+  label: NVEmbedPipeline
+  lab_name: injection_lab
+  class_parts:
+  - EMBPipeline
+  - NVEmbedPipeline
+  module_path: beesup_llm.emb
+  name_or_path: nvidia/NV-Embed-v2
+  instruction: Retrieve a suitable header
+data_df:
+  type: DataFrame
+  filename: data_df.pkl
+  n_rows: 3889
+  columns: s, p, o, source_name, attr_type, n_units, n_words, s_emb, p_emb, o_emb,
+    spo, spo_emb, po, po_emb, so, so_emb
+  overwrite: false

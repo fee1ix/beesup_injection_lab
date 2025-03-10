@@ -1,0 +1,62 @@
+id: 1
+label: Taxomizer
+lab_name: injection_lab
+class_parts:
+- Taxomizer
+module_path: beesup_llm.injection.taxomizer
+chunk_txt_key: spo
+chunk_emb_key: emb
+linkage_args:
+  method: ward
+  optimal_ordering: false
+dist_flattening_config:
+  include_leaves: false
+  use_kneepoint: true
+  use_std: false
+  std_factor: 1.0
+ddist_flattening_config:
+  include_leaves: false
+  use_kneepoint: true
+  use_std: false
+  std_factor: 1.0
+chunks_df:
+  type: DataFrame
+  filename: chunks_df.pkl
+  n_rows: 3412
+  columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label
+  overwrite: false
+llm_pipe:
+  class_parts:
+  - LLMPipeline
+  - LlamaPipeline
+  module_path: beesup_llm.llm
+  id: 2
+  label: LlamaPipeline
+  lab_name: injection_lab
+  name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+  generation_config:
+    return_dict_in_generate: false
+    max_time: 1200
+    do_sample: false
+    stop_strings:
+    - '
+
+      '
+    max_new_tokens: 100
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  inference_tokenizer_config:
+    padding: longest
+    padding_side: left
+    max_length: 8192
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  training_tokenizer_config:
+    padding: longest
+    padding_side: right
+    max_length: 8192
+    pad_token: <|end_of_text|>
+    pad_token_id: 128001
+  pipeline_args:
+    return_full_text: false
+    clean_up_tokenization_spaces: true
