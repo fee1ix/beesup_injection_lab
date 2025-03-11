@@ -1,0 +1,187 @@
+id: 2
+label: InjectionDatahandle
+lab_name: injection_lab
+class_parts:
+- Datahandle
+- InjectionDatahandle
+module_path: labtools.datahandle
+remarks: english system prompt, german query prompt
+use_taxonomy: true
+taxomizer:
+  id: 1
+  label: Taxomizer
+  lab_name: injection_lab
+  class_parts:
+  - Taxomizer
+  module_path: beesup_llm.injection.taxomizing
+  chunk_txt_key: spo
+  chunk_emb_key: emb
+  linkage_args:
+    method: ward
+    optimal_ordering: false
+  dist_flattening_config:
+    include_leaves: false
+    use_kneepoint: true
+    use_std: false
+    std_factor: 1.0
+  ddist_flattening_config:
+    include_leaves: false
+    use_kneepoint: true
+    use_std: false
+    std_factor: 1.0
+  chunks_dh:
+    id: 2
+    label: ChunksDatahandle
+    lab_name: injection_lab
+    class_parts:
+    - Datahandle
+    - ChunksDatahandle
+    module_path: labtools.datahandle
+    drop_emb_duplicates: false
+    emb_dh:
+      id: 2
+      label: EmbeddingDatahandle
+      lab_name: injection_lab
+      class_parts:
+      - Datahandle
+      - EmbeddingDatahandle
+      module_path: labtools.datahandle
+      emb_templates:
+        s: '{s}'
+        p: '{p}'
+        o: '{o}'
+        spo: '{s}
+
+
+          {p}
+
+
+          {o}'
+        po: '{p}
+
+
+          {o}'
+        so: '{s}
+
+
+          {o}'
+      base_dh:
+        id: 1
+        label: wildbienen_database
+        lab_name: injection_lab
+        class_parts:
+        - Datahandle
+        - BaseDatahandle
+        module_path: labtools.datahandle
+      emb_pipe_config:
+        id: 1
+        label: NVEmbedPipeline
+        lab_name: injection_lab
+        class_parts:
+        - EMBPipeline
+        - NVEmbedPipeline
+        module_path: beesup_llm.emb
+        name_or_path: nvidia/NV-Embed-v2
+        instruction: 'Instruct: Given a passage, retrieve a suitable header
+
+
+
+          Passage:
+
+
+          '
+  tree_info:
+    bin_tree:
+      num_nodes: 6823
+      height: 121
+      num_root_children: 2
+      num_leaves: 3412
+      branching: 2.0
+      avg_degree: 1.0
+      avg_balance: 4.36
+      dia: 231
+      avg_depth: 20.12
+      width: 632
+    dist_threshold: 0.8682037974909939
+    dist_tree:
+      num_nodes: 3466
+      height: 9
+      num_root_children: 2
+      num_leaves: 3412
+      branching: 65.34
+      avg_degree: 1.0
+      avg_balance: 0.01
+      dia: 18
+      avg_depth: 5.73
+      width: 1197
+    ddist_threshold: 2.1417767549697544
+    ddist_tree_raw:
+      num_nodes: 3435
+      height: 6
+      num_root_children: 3
+      num_leaves: 3412
+      branching: 155.95
+      avg_degree: 1.0
+      avg_balance: 0.0
+      dia: 10
+      avg_depth: 3.76
+      width: 1647
+    ddist_tree_rec:
+      num_nodes: 3436
+      height: 6
+      num_root_children: 3
+      num_leaves: 3412
+      branching: 149.22
+      avg_degree: 1.0
+      avg_balance: 0.0
+      dia: 10
+      avg_depth: 3.83
+      width: 1647
+  chunks_df:
+    type: DataFrame
+    filename: chunks_df.pkl
+    n_rows: 3412
+    columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label,
+      node_id
+    overwrite: false
+  llm_pipe:
+    class_parts:
+    - LLMPipeline
+    - LlamaPipeline
+    module_path: beesup_llm.llm
+    id: 2
+    label: LlamaPipeline
+    lab_name: injection_lab
+    name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+    generation_config:
+      return_dict_in_generate: false
+      max_time: 1200
+      do_sample: false
+      max_new_tokens: 100
+      pad_token: <|begin_of_text|>
+      pad_token_id: 128000
+      stop_strings:
+      - '
+
+        '
+    inference_tokenizer_config:
+      padding: longest
+      padding_side: left
+      max_length: 8192
+      pad_token: <|begin_of_text|>
+      pad_token_id: 128000
+    training_tokenizer_config:
+      padding: longest
+      padding_side: right
+      max_length: 8192
+      pad_token: <|end_of_text|>
+      pad_token_id: 128001
+    pipeline_args:
+      return_full_text: false
+      clean_up_tokenization_spaces: true
+data_df:
+  type: DataFrame
+  filename: data_df.pkl
+  n_rows: 3412
+  columns: kidx, tidx, prompt_messages, gold_message, node_id, hpath, split
+  overwrite: false

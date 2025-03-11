@@ -1,10 +1,11 @@
 id: 2
-label: mmlu
+label: MMLU
 lab_name: injection_lab
 class_parts:
-- Evaluator
+- LLMEvaluator
+- InjectionEvaluator
 - MCQEvaluator
-module_path: beesup_llm.injection.evaluation
+module_path: beesup_llm.injection.injection_evaluation
 eval_df:
   type: DataFrame
   filename: eval_df.pkl

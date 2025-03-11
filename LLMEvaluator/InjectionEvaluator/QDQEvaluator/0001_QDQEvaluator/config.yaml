@@ -2,9 +2,10 @@ id: 1
 label: QDQEvaluator
 lab_name: injection_lab
 class_parts:
-- Evaluator
+- LLMEvaluator
+- InjectionEvaluator
 - QDQEvaluator
-module_path: beesup_llm.injection.evaluation
+module_path: beesup_llm.injection.injection_evaluation
 n_fewshots: 3
 eval_df:
   type: DataFrame

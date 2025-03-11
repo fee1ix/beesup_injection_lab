@@ -1,0 +1,24 @@
+id: 3
+label: RAG_CHUNKS
+lab_name: injection_lab
+class_parts:
+- Datahandle
+- ChunksDatahandle
+module_path: labtools.datahandle
+remarks: 'emb = spo_emb, excluded rows with p="Wissenschaftlicher Name" '
+emb_pipe:
+  id: 1
+  label: NVEmbedPipeline
+  lab_name: injection_lab
+  class_parts:
+  - EMBPipeline
+  - NVEmbedPipeline
+  module_path: beesup_llm.emb
+  name_or_path: nvidia/NV-Embed-v2
+  instruction: ''
+data_df:
+  type: DataFrame
+  filename: data_df.pkl
+  n_rows: 3412
+  columns: spo, s, p, o, source_name, attr_type, n_units, n_words, emb
+  overwrite: false

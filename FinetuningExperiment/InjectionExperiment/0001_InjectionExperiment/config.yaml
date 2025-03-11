@@ -1,0 +1,295 @@
+id: 1
+label: InjectionExperiment
+lab_name: injection_lab
+class_parts:
+- FinetuningExperiment
+- InjectionExperiment
+module_path: beesup_llm.injection.injection_experiment
+do_eval_base_model_rag: true
+do_eval_lora_model_rag: false
+done: false
+do_eval_base_model: false
+do_eval_lora_model: false
+do_train: false
+lora_config:
+  r: 32
+  lora_alpha: 3
+  use_rslora: true
+  target_modules: all-linear
+  lora_dropout: 0.05
+  bias: none
+  task_type: CAUSAL_L
+sft_config:
+  num_train_epochs: 1
+  output_dir: /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0001_InjectionExperiment
+  auto_find_batch_size: true
+  per_device_train_batch_size: 8
+  gradient_accumulation_steps: 1
+  learning_rate: 0.0002
+  optim: paged_adamw_8bit
+  save_strategy: 'no'
+  eval_strategy: 'no'
+  logging_strategy: steps
+  logging_steps: 1
+  logging_first_step: true
+  do_train: false
+  do_eval: false
+  report_to: none
+  max_seq_length: 4096
+  packing: false
+  seed: 42
+data_df:
+  class_parts:
+  - Datahandle
+  - InjectionDatahandle
+  module_path: labtools.datahandle
+  id: 2
+  label: InjectionDatahandle
+  lab_name: injection_lab
+  use_taxonomy: true
+  taxomizer:
+    id: 1
+    label: Taxomizer
+    lab_name: injection_lab
+    class_parts:
+    - Taxomizer
+    module_path: beesup_llm.injection.taxomizing
+    chunk_txt_key: spo
+    chunk_emb_key: emb
+    linkage_args:
+      method: ward
+      optimal_ordering: false
+    dist_flattening_config:
+      include_leaves: false
+      use_kneepoint: true
+      use_std: false
+      std_factor: 1.0
+    ddist_flattening_config:
+      include_leaves: false
+      use_kneepoint: true
+      use_std: false
+      std_factor: 1.0
+    chunks_dh:
+      id: 2
+      label: ChunksDatahandle
+      lab_name: injection_lab
+      class_parts:
+      - Datahandle
+      - ChunksDatahandle
+      module_path: labtools.datahandle
+      drop_emb_duplicates: false
+      emb_dh:
+        id: 2
+        label: EmbeddingDatahandle
+        lab_name: injection_lab
+        class_parts:
+        - Datahandle
+        - EmbeddingDatahandle
+        module_path: labtools.datahandle
+        emb_templates:
+          s: '{s}'
+          p: '{p}'
+          o: '{o}'
+          spo: '{s}
+
+
+            {p}
+
+
+            {o}'
+          po: '{p}
+
+
+            {o}'
+          so: '{s}
+
+
+            {o}'
+        base_dh:
+          id: 1
+          label: wildbienen_database
+          lab_name: injection_lab
+          class_parts:
+          - Datahandle
+          - BaseDatahandle
+          module_path: labtools.datahandle
+        emb_pipe_config:
+          id: 1
+          label: NVEmbedPipeline
+          lab_name: injection_lab
+          class_parts:
+          - EMBPipeline
+          - NVEmbedPipeline
+          module_path: beesup_llm.emb
+          name_or_path: nvidia/NV-Embed-v2
+          instruction: 'Instruct: Given a passage, retrieve a suitable header
+
+
+
+            Passage:
+
+
+            '
+    tree_info:
+      bin_tree:
+        num_nodes: 6823
+        height: 121
+        num_root_children: 2
+        num_leaves: 3412
+        branching: 2.0
+        avg_degree: 1.0
+        avg_balance: 4.36
+        dia: 231
+        avg_depth: 20.12
+        width: 632
+      dist_threshold: 0.8682037974909939
+      dist_tree:
+        num_nodes: 3466
+        height: 9
+        num_root_children: 2
+        num_leaves: 3412
+        branching: 65.34
+        avg_degree: 1.0
+        avg_balance: 0.01
+        dia: 18
+        avg_depth: 5.73
+        width: 1197
+      ddist_threshold: 2.1417767549697544
+      ddist_tree_raw:
+        num_nodes: 3435
+        height: 6
+        num_root_children: 3
+        num_leaves: 3412
+        branching: 155.95
+        avg_degree: 1.0
+        avg_balance: 0.0
+        dia: 10
+        avg_depth: 3.76
+        width: 1647
+      ddist_tree_rec:
+        num_nodes: 3436
+        height: 6
+        num_root_children: 3
+        num_leaves: 3412
+        branching: 149.22
+        avg_degree: 1.0
+        avg_balance: 0.0
+        dia: 10
+        avg_depth: 3.83
+        width: 1647
+    chunks_df:
+      type: DataFrame
+      filename: chunks_df.pkl
+      n_rows: 3412
+      columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb,
+        label, node_id
+      overwrite: false
+llm_pipe:
+  class_parts:
+  - LLMPipeline
+  - LlamaPipeline
+  module_path: beesup_llm.llm
+  id: 1
+  label: LlamaPipeline
+  lab_name: injection_lab
+  name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+  generation_config:
+    return_dict_in_generate: false
+    max_time: 1200
+    do_sample: false
+    max_new_tokens: 4096
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  inference_tokenizer_config:
+    padding: longest
+    padding_side: left
+    max_length: 8192
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  training_tokenizer_config:
+    padding: longest
+    padding_side: right
+    max_length: 8192
+    pad_token: <|end_of_text|>
+    pad_token_id: 128001
+  pipeline_args:
+    return_full_text: false
+    clean_up_tokenization_spaces: true
+evaluators:
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - MCQEvaluator
+  module_path: beesup_llm.injection.injection_evaluation
+  id: 1
+  label: BEES
+  lab_name: injection_lab
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 105
+    columns: sidx, kidx, tidx, add_kidc, add_tidc, emb_col, question, choices, answer,
+      question_emb
+    overwrite: false
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - FFQEvaluator
+  module_path: beesup_llm.injection.injection_evaluation
+  id: 1
+  label: BEES
+  lab_name: injection_lab
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 5
+    columns: sidx, kidx, tidx, add_kidc, emb_col, question, answer, question_emb
+    overwrite: false
+rag_pipe:
+  class_parts:
+  - RAGPipeline
+  module_path: beesup_llm.injection.rag
+  id: 1
+  label: RAGPipeline
+  lab_name: injection_lab
+  chunk_txt_key: spo
+  chunk_emb_key: emb
+  chunk_instruction: ''
+  query_txt_key: question
+  query_emb_key: question_emb
+  query_instruction: Given a question, retrieve passages that answer the question
+  chunks_df:
+    class_parts:
+    - Datahandle
+    - ChunksDatahandle
+    module_path: labtools.datahandle
+    id: 3
+    label: RAG_CHUNKS
+    lab_name: injection_lab
+    emb_pipe:
+      id: 1
+      label: NVEmbedPipeline
+      lab_name: injection_lab
+      class_parts:
+      - EMBPipeline
+      - NVEmbedPipeline
+      module_path: beesup_llm.emb
+      name_or_path: nvidia/NV-Embed-v2
+      instruction: ''
+  limiters:
+  - class_parts:
+    - RAGLimiter
+    - NumLimiter
+    module_path: beesup_llm.injection.rag
+    limit: 100
+  - class_parts:
+    - RAGLimiter
+    - TokenLimiter
+    module_path: beesup_llm.injection.rag
+    limit: 1000
+  - class_parts:
+    - RAGLimiter
+    - KneeLimiter
+    module_path: beesup_llm.injection.rag
+    curve: convex
+    direction: decreasing

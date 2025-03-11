@@ -1,0 +1,59 @@
+id: 2
+label: EmbeddingDatahandle
+lab_name: injection_lab
+class_parts:
+- Datahandle
+- EmbeddingDatahandle
+module_path: labtools.datahandle
+remarks: s,p,o emb variations
+emb_templates:
+  s: '{s}'
+  p: '{p}'
+  o: '{o}'
+  spo: '{s}
+
+
+    {p}
+
+
+    {o}'
+  po: '{p}
+
+
+    {o}'
+  so: '{s}
+
+
+    {o}'
+base_dh:
+  id: 1
+  label: wildbienen_database
+  lab_name: injection_lab
+  class_parts:
+  - Datahandle
+  - BaseDatahandle
+  module_path: labtools.datahandle
+emb_pipe_config:
+  id: 1
+  label: NVEmbedPipeline
+  lab_name: injection_lab
+  class_parts:
+  - EMBPipeline
+  - NVEmbedPipeline
+  module_path: beesup_llm.emb
+  name_or_path: nvidia/NV-Embed-v2
+  instruction: 'Instruct: Given a passage, retrieve a suitable header
+
+
+
+    Passage:
+
+
+    '
+data_df:
+  type: DataFrame
+  filename: data_df.pkl
+  n_rows: 3889
+  columns: s, p, o, source_name, attr_type, n_units, n_words, s_emb, p_emb, o_emb,
+    spo, spo_emb, po, po_emb, so, so_emb
+  overwrite: false
