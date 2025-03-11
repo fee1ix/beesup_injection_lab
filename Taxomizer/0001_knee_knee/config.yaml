@@ -1,0 +1,149 @@
+id: 1
+label: knee_knee
+lab_name: injection_lab
+class_parts:
+- Taxomizer
+module_path: beesup_llm.injection.taxomizing
+chunk_txt_key: spo
+chunk_emb_key: emb
+linkage_args:
+  method: ward
+  optimal_ordering: false
+dist_flattening_config:
+  include_leaves: false
+  use_kneepoint: true
+  use_std: false
+  std_factor: 1.0
+ddist_flattening_config:
+  include_leaves: false
+  use_kneepoint: true
+  use_std: false
+  std_factor: 1.0
+chunks_dh:
+  id: 1
+  label: po_chunks
+  lab_name: injection_lab
+  class_parts:
+  - Datahandle
+  - ChunksDatahandle
+  module_path: labtools.datahandle
+  emb_dh:
+    id: 1
+    label: emb_triples
+    lab_name: injection_lab
+    class_parts:
+    - Datahandle
+    - EmbeddingDatahandle
+    module_path: labtools.datahandle
+    base_dh:
+      id: 1
+      label: wildbienen_database
+      lab_name: injection_lab
+      class_parts:
+      - Datahandle
+      - BaseDatahandle
+      module_path: labtools.datahandle
+    emb_pipe_config:
+      id: 1
+      label: NVEmbedPipeline
+      lab_name: injection_lab
+      class_parts:
+      - EMBPipeline
+      - NVEmbedPipeline
+      module_path: beesup_llm.emb
+      name_or_path: nvidia/NV-Embed-v2
+      instruction: Retrieve a suitable header
+  data_df:
+    type: DataFrame
+    filename: data_df.pkl
+    n_rows: 3412
+    columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label
+    overwrite: false
+tree_info:
+  bin_tree:
+    num_nodes: 6823
+    height: 203
+    num_root_children: 2
+    num_leaves: 3412
+    branching: 2.0
+    avg_degree: 1.0
+    avg_balance: 6.94
+    dia: 324
+    avg_depth: 24.52
+    width: 664
+  dist_threshold: 1.15094927877032
+  dist_tree:
+    num_nodes: 3452
+    height: 8
+    num_root_children: 2
+    num_leaves: 3412
+    branching: 88.44
+    avg_degree: 1.0
+    avg_balance: 0.01
+    dia: 15
+    avg_depth: 5.44
+    width: 1393
+  ddist_threshold: 3.1841828541270107
+  ddist_tree_raw:
+    num_nodes: 3429
+    height: 4
+    num_root_children: 2
+    num_leaves: 3412
+    branching: 214.12
+    avg_degree: 1.0
+    avg_balance: 0.0
+    dia: 7
+    avg_depth: 3.58
+    width: 2371
+  ddist_tree_rec:
+    num_nodes: 3430
+    height: 4
+    num_root_children: 2
+    num_leaves: 3412
+    branching: 201.59
+    avg_degree: 1.0
+    avg_balance: 0.0
+    dia: 7
+    avg_depth: 3.69
+    width: 2371
+chunks_df:
+  type: DataFrame
+  filename: chunks_df.pkl
+  n_rows: 3412
+  columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label
+  overwrite: false
+llm_pipe:
+  class_parts:
+  - LLMPipeline
+  - LlamaPipeline
+  module_path: beesup_llm.llm
+  id: 2
+  label: LlamaPipeline
+  lab_name: injection_lab
+  name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+  generation_config:
+    return_dict_in_generate: false
+    max_time: 1200
+    do_sample: false
+    stop_strings:
+    - '
+
+      '
+    max_new_tokens: 100
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  inference_tokenizer_config:
+    padding: longest
+    padding_side: left
+    max_length: 8192
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  training_tokenizer_config:
+    padding: longest
+    padding_side: right
+    max_length: 8192
+    pad_token: <|end_of_text|>
+    pad_token_id: 128001
+  pipeline_args:
+    return_full_text: false
+    clean_up_tokenization_spaces: true

@@ -1,14 +1,14 @@
 id: 1
-label: bees
+label: QDQEvaluator
 lab_name: injection_lab
 class_parts:
 - Evaluator
-- MCQEvaluator
+- QDQEvaluator
 module_path: beesup_llm.injection.evaluation
+n_fewshots: 3
 eval_df:
   type: DataFrame
   filename: eval_df.pkl
-  n_rows: 105
-  columns: sidx, kidx, tidx, add_kidc, add_tidc, emb_col, question, choices, answer,
-    question_emb
+  n_rows: 30
+  columns: question, target_attr, gold_items, question_emb
   overwrite: false

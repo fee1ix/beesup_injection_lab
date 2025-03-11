@@ -1,0 +1,40 @@
+id: 1
+label: po_chunks
+lab_name: injection_lab
+class_parts:
+- Datahandle
+- ChunksDatahandle
+module_path: labtools.datahandle
+emb_dh:
+  id: 1
+  label: emb_triples
+  lab_name: injection_lab
+  class_parts:
+  - Datahandle
+  - EmbeddingDatahandle
+  module_path: labtools.datahandle
+  base_dh:
+    id: 1
+    label: wildbienen_database
+    lab_name: injection_lab
+    class_parts:
+    - Datahandle
+    - BaseDatahandle
+    module_path: labtools.datahandle
+  emb_pipe_config:
+    id: 1
+    label: NVEmbedPipeline
+    lab_name: injection_lab
+    class_parts:
+    - EMBPipeline
+    - NVEmbedPipeline
+    module_path: beesup_llm.emb
+    name_or_path: nvidia/NV-Embed-v2
+    instruction: Retrieve a suitable header
+data_df:
+  type: DataFrame
+  filename: data_df.pkl
+  n_rows: 3412
+  columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label
+  overwrite: false
+remarks: 'emb = po_emb, excluded rows with p="Wissenschaftlicher Name" '

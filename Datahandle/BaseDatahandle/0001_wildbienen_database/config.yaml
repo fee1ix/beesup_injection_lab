@@ -1,0 +1,15 @@
+id: 1
+label: wildbienen_database
+lab_name: injection_lab
+class_parts:
+- Datahandle
+- BaseDatahandle
+module_path: labtools.datahandle
+remarks: querried from wildbienen.db, preprocessed
+data_df:
+  type: DataFrame
+  filename: data_df.pkl
+  n_rows: 3889
+  columns: genus_species, author_year, attr_key, attr_val, source_name, attr_type,
+    n_units, n_words, scientific_name
+  overwrite: false
