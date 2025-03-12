@@ -144,7 +144,7 @@ llm_pipe:
   - LLMPipeline
   - LlamaPipeline
   module_path: beesup_llm.llm
-  id: 2
+  id: 1
   label: LlamaPipeline
   lab_name: injection_lab
   name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct

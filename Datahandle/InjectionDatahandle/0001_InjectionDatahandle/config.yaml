@@ -9,7 +9,7 @@ remarks: english system prompt, german query prompt
 use_taxonomy: true
 taxomizer:
   id: 1
-  label: knee_knee
+  label: Taxomizer
   lab_name: injection_lab
   class_parts:
   - Taxomizer
@@ -30,21 +30,41 @@ taxomizer:
     use_std: false
     std_factor: 1.0
   chunks_dh:
-    id: 1
-    label: po_chunks
+    id: 2
+    label: ChunksDatahandle
     lab_name: injection_lab
     class_parts:
     - Datahandle
     - ChunksDatahandle
     module_path: labtools.datahandle
+    drop_emb_duplicates: false
     emb_dh:
-      id: 1
-      label: emb_triples
+      id: 2
+      label: EmbeddingDatahandle
       lab_name: injection_lab
       class_parts:
       - Datahandle
       - EmbeddingDatahandle
       module_path: labtools.datahandle
+      emb_templates:
+        s: '{s}'
+        p: '{p}'
+        o: '{o}'
+        spo: '{s}
+
+
+          {p}
+
+
+          {o}'
+        po: '{p}
+
+
+          {o}'
+        so: '{s}
+
+
+          {o}'
       base_dh:
         id: 1
         label: wildbienen_database
@@ -62,54 +82,61 @@ taxomizer:
         - NVEmbedPipeline
         module_path: beesup_llm.emb
         name_or_path: nvidia/NV-Embed-v2
-        instruction: Retrieve a suitable header
+        instruction: 'Instruct: Given a passage, retrieve a suitable header
+
+
+
+          Passage:
+
+
+          '
   tree_info:
     bin_tree:
       num_nodes: 6823
-      height: 203
+      height: 121
       num_root_children: 2
       num_leaves: 3412
       branching: 2.0
       avg_degree: 1.0
-      avg_balance: 6.94
-      dia: 324
-      avg_depth: 24.52
-      width: 664
-    dist_threshold: 1.15094927877032
+      avg_balance: 4.36
+      dia: 231
+      avg_depth: 20.12
+      width: 632
+    dist_threshold: 0.8682037974909939
     dist_tree:
-      num_nodes: 3452
-      height: 8
+      num_nodes: 3466
+      height: 9
       num_root_children: 2
       num_leaves: 3412
-      branching: 88.44
+      branching: 65.34
       avg_degree: 1.0
       avg_balance: 0.01
-      dia: 15
-      avg_depth: 5.44
-      width: 1393
-    ddist_threshold: 3.1841828541270107
+      dia: 18
+      avg_depth: 5.73
+      width: 1197
+    ddist_threshold: 2.1417767549697544
     ddist_tree_raw:
-      num_nodes: 3429
-      height: 4
-      num_root_children: 2
+      num_nodes: 3435
+      height: 6
+      num_root_children: 3
       num_leaves: 3412
-      branching: 214.12
+      branching: 155.95
       avg_degree: 1.0
       avg_balance: 0.0
-      dia: 7
-      avg_depth: 3.58
-      width: 2371
+      dia: 10
+      avg_depth: 3.76
+      width: 1647
     ddist_tree_rec:
-      num_nodes: 3430
-      height: 4
-      num_root_children: 2
+      num_nodes: 3436
+      height: 6
+      num_root_children: 3
       num_leaves: 3412
-      branching: 201.59
+      branching: 149.22
       avg_degree: 1.0
       avg_balance: 0.0
-      dia: 7
-      avg_depth: 3.69
-      width: 2371
+      dia: 10
+      avg_depth: 3.83
+      width: 1647
   chunks_df:
     type: DataFrame
     filename: chunks_df.pkl
@@ -122,7 +149,7 @@ taxomizer:
     - LLMPipeline
     - LlamaPipeline
     module_path: beesup_llm.llm
-    id: 2
+    id: 1
     label: LlamaPipeline
     lab_name: injection_lab
     name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
@@ -130,13 +157,13 @@ taxomizer:
       return_dict_in_generate: false
       max_time: 1200
       do_sample: false
+      max_new_tokens: 100
+      pad_token: <|begin_of_text|>
+      pad_token_id: 128000
       stop_strings:
       - '
 
         '
-      max_new_tokens: 100
-      pad_token: <|begin_of_text|>
-      pad_token_id: 128000
     inference_tokenizer_config:
       padding: longest
       padding_side: left
@@ -156,5 +183,6 @@ data_df:
   type: DataFrame
   filename: data_df.pkl
   n_rows: 3412
-  columns: kidx, tidx, prompt_messages, gold_message, node_id, hpath, split
+  columns: kidx, tidx, prompt_messages, gold_message, toc, toc_until, node_id, hpath,
+    split
   overwrite: false

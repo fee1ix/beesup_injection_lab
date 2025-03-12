@@ -1,4 +1,4 @@
-id: 1
+id: 2
 label: InjectionExperiment
 lab_name: injection_lab
 class_parts:
@@ -21,7 +21,7 @@ lora_config:
   task_type: CAUSAL_L
 sft_config:
   num_train_epochs: 1
-  output_dir: /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0001_InjectionExperiment
+  output_dir: /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0002_InjectionExperiment
   auto_find_batch_size: true
   per_device_train_batch_size: 8
   gradient_accumulation_steps: 1
@@ -249,6 +249,35 @@ evaluators:
     n_rows: 105
     columns: sidx, kidx, tidx, add_kidc, add_tidc, emb_col, question, choices, answer,
       question_emb
+    overwrite: false
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - MCQEvaluator
+  module_path: beesup_llm.injection.injection_evaluation
+  id: 2
+  label: MMLU
+  lab_name: injection_lab
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 100
+    columns: mmluidx, question, subject, choices, answer, question_emb
+    overwrite: false
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - QDQEvaluator
+  module_path: beesup_llm.injection.injection_evaluation
+  id: 1
+  label: QDQEvaluator
+  lab_name: injection_lab
+  n_fewshots: 3
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 30
+    columns: question, target_attr, gold_items, question_emb
     overwrite: false
 - class_parts:
   - LLMEvaluator
