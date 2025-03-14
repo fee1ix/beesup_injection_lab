@@ -1,0 +1,76 @@
+id: 2
+label: InjectionDatahandle
+lab_name: injection_lab
+class_parts:
+- Datahandle
+- InjectionDatahandle
+module_path: labtools.datahandle
+remarks: english system prompt, german query prompt
+use_taxonomy: false
+chunks_dh:
+  id: 2
+  label: ChunksDatahandle
+  lab_name: injection_lab
+  class_parts:
+  - Datahandle
+  - ChunksDatahandle
+  module_path: labtools.datahandle
+  drop_emb_duplicates: false
+  emb_dh:
+    id: 2
+    label: EmbeddingDatahandle
+    lab_name: injection_lab
+    class_parts:
+    - Datahandle
+    - EmbeddingDatahandle
+    module_path: labtools.datahandle
+    emb_templates:
+      s: '{s}'
+      p: '{p}'
+      o: '{o}'
+      spo: '{s}
+
+
+        {p}
+
+
+        {o}'
+      po: '{p}
+
+
+        {o}'
+      so: '{s}
+
+
+        {o}'
+    base_dh:
+      id: 1
+      label: wildbienen_database
+      lab_name: injection_lab
+      class_parts:
+      - Datahandle
+      - BaseDatahandle
+      module_path: labtools.datahandle
+    emb_pipe_config:
+      id: 1
+      label: NVEmbedPipeline
+      lab_name: injection_lab
+      class_parts:
+      - EMBPipeline
+      - NVEmbedPipeline
+      module_path: beesup_llm.emb
+      name_or_path: nvidia/NV-Embed-v2
+      instruction: 'Instruct: Given a passage, retrieve a suitable header
+
+
+
+        Passage:
+
+
+        '
+data_df:
+  type: DataFrame
+  filename: data_df.pkl
+  n_rows: 3412
+  columns: kidx, tidx, prompt_messages, gold_message, split
+  overwrite: false

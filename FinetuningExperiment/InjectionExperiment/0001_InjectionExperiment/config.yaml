@@ -5,6 +5,8 @@ class_parts:
 - FinetuningExperiment
 - InjectionExperiment
 module_path: beesup_llm.injection.injection_experiment
+do_eval_base_model_rag: true
+do_eval_lora_model_rag: true
 done: false
 do_eval_base_model: true
 do_eval_lora_model: true
@@ -36,8 +38,6 @@ sft_config:
   max_seq_length: 4096
   packing: false
   seed: 42
-do_eval_base_model_rag: false
-do_eval_lora_model_rag: false
 toc: " Wildbienen\n\u251C\u2500\u2500  Umgangssprachliche Bezeichnungen f\xFCr Wildbienen\n\
   \u2502   \u251C\u2500\u2500  Umgangssprachliche Bezeichnungen f\xFCr Wildbienen-Arten\n\
   \u2502   \u2514\u2500\u2500  Kuckucksbienen (Nomaden)\n\u2502       \u251C\u2500\
@@ -271,6 +271,13 @@ evaluators:
   id: 1
   label: QDQEvaluator
   lab_name: injection_lab
+  eval_epochs:
+  - 0
+  - 2
+  - 4
+  - 6
+  - 8
+  - 10
   n_fewshots: 3
   eval_df:
     type: DataFrame
