@@ -7,7 +7,7 @@ class_parts:
 module_path: beesup_llm.injection.injection_experiment
 do_eval_base_model_rag: true
 do_eval_lora_model_rag: true
-done: false
+done: true
 do_eval_base_model: true
 do_eval_lora_model: true
 do_train: true
@@ -38,6 +38,15 @@ sft_config:
   max_seq_length: 4096
   packing: false
   seed: 42
+timestamp_start: 2025-03-15_04-34-51
+lora_info:
+  n_trainable_params: 83886080
+  n_total_params: 8114147328
+  p_trainable_params: 0.010338249554642546
+  lora_scale: 0.5303300858899106
+timestamp_train_start: 2025-03-15_04-40-19
+timestamp_train_done: 2025-03-15_11-55-15
+timestamp_done: 2025-03-15_11-55-15
 data_df:
   class_parts:
   - Datahandle
