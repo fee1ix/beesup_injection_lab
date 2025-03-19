@@ -4,7 +4,7 @@ lab_name: injection_lab
 class_parts:
 - FinetuningExperiment
 - InjectionExperiment
-module_path: beesup_llm.injection.injection_experiment
+module_path: beesup_llm.injection.experiment
 do_eval_base_model_rag: true
 do_eval_lora_model_rag: true
 done: true
@@ -152,7 +152,7 @@ evaluators:
   - LLMEvaluator
   - InjectionEvaluator
   - MCQEvaluator
-  module_path: beesup_llm.injection.injection_evaluation
+  module_path: beesup_llm.injection.evaluation
   id: 1
   label: BEES
   lab_name: injection_lab
@@ -167,7 +167,7 @@ evaluators:
   - LLMEvaluator
   - InjectionEvaluator
   - MCQEvaluator
-  module_path: beesup_llm.injection.injection_evaluation
+  module_path: beesup_llm.injection.evaluation
   id: 2
   label: MMLU
   lab_name: injection_lab
@@ -181,7 +181,7 @@ evaluators:
   - LLMEvaluator
   - InjectionEvaluator
   - QDQEvaluator
-  module_path: beesup_llm.injection.injection_evaluation
+  module_path: beesup_llm.injection.evaluation
   id: 1
   label: QDQEvaluator
   lab_name: injection_lab
@@ -203,7 +203,7 @@ evaluators:
   - LLMEvaluator
   - InjectionEvaluator
   - FFQEvaluator
-  module_path: beesup_llm.injection.injection_evaluation
+  module_path: beesup_llm.injection.evaluation
   id: 1
   label: BEES
   lab_name: injection_lab
@@ -216,7 +216,7 @@ evaluators:
 rag_pipe:
   class_parts:
   - RAGPipeline
-  module_path: beesup_llm.injection.rag
+  module_path: beesup_llm.rag
   label: RAGPipeline
   lab_name: injection_lab
   chunk_txt_key: spo
@@ -247,16 +247,16 @@ rag_pipe:
   - class_parts:
     - RAGLimiter
     - NumLimiter
-    module_path: beesup_llm.injection.rag
+    module_path: beesup_llm.rag
     limit: 100
   - class_parts:
     - RAGLimiter
     - TokenLimiter
-    module_path: beesup_llm.injection.rag
+    module_path: beesup_llm.rag
     limit: 1000
   - class_parts:
     - RAGLimiter
     - KneeLimiter
-    module_path: beesup_llm.injection.rag
+    module_path: beesup_llm.rag
     curve: convex
     direction: decreasing

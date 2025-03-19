@@ -5,7 +5,7 @@ class_parts:
 - LLMEvaluator
 - InjectionEvaluator
 - QDQEvaluator
-module_path: beesup_llm.injection.injection_evaluation
+module_path: beesup_llm.injection.evaluation
 n_fewshots: 3
 eval_df:
   type: DataFrame
