@@ -1,0 +1,998 @@
+id: 6
+label: InjectionExperiment
+lab_name: injection_lab
+class_parts:
+- FinetuningExperiment
+- InjectionExperiment
+module_path: beesup_llm.injection.experiment
+do_eval_base_model_rag: true
+do_eval_lora_model_rag: true
+done: false
+do_eval_base_model: true
+do_eval_lora_model: true
+do_train: true
+test_mode: false
+lora_config:
+  r: 32
+  lora_alpha: 3
+  use_rslora: true
+  target_modules: all-linear
+  lora_dropout: 0.05
+  bias: none
+  task_type: CAUSAL_L
+sft_config:
+  num_train_epochs: 10
+  output_dir: /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0006_InjectionExperiment
+  auto_find_batch_size: true
+  per_device_train_batch_size: 8
+  gradient_accumulation_steps: 1
+  learning_rate: 0.0002
+  optim: paged_adamw_8bit
+  save_strategy: 'no'
+  save_total_limit: 1
+  eval_strategy: 'no'
+  logging_strategy: steps
+  logging_steps: 1
+  logging_first_step: true
+  do_train: true
+  do_eval: false
+  report_to: none
+  max_seq_length: 4096
+  packing: false
+  seed: 42
+evaluators:
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - MCQEvaluator
+  module_path: beesup_llm.injection.evaluation
+  id: 3
+  label: BEES
+  lab_name: injection_lab
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 1000
+    columns: sidx, kidx, add_kidc, add_tidc, emb_col, question, choices, answer
+    overwrite: false
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - MCQEvaluator
+  module_path: beesup_llm.injection.evaluation
+  id: 4
+  label: MMLU
+  lab_name: injection_lab
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 1000
+    columns: mmluidx, question, subject, choices, answer
+    overwrite: false
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - QDQEvaluator
+  module_path: beesup_llm.injection.evaluation
+  id: 1
+  label: QDQEvaluator
+  lab_name: injection_lab
+  n_fewshots: 3
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 30
+    columns: question, target_attr, gold_items, question_emb
+    overwrite: false
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - FFQEvaluator
+  module_path: beesup_llm.injection.evaluation
+  id: 1
+  label: BEES
+  lab_name: injection_lab
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 5
+    columns: sidx, kidx, tidx, add_kidc, emb_col, question, answer, question_emb
+    overwrite: false
+toc: " Wildbienen\n\u251C\u2500\u2500  Baumaterialien und Requisiten\n\u251C\u2500\
+  \u2500  Schutzma\xDFnahmen und Gef\xE4hrdungsfaktoren f\xFCr Wildbienen\n\u2502\
+  \   \u251C\u2500\u2500  Schutzma\xDFnahmen f\xFCr gef\xE4hrdete Wildbienenarten\n\
+  \u2502   \u2502   \u251C\u2500\u2500  Schutzma\xDFnahmen f\xFCr die Geh\xF6rnte\
+  \ Mauerbiene\n\u2502   \u2502   \u2514\u2500\u2500  Schutzma\xDFnahmen f\xFCr Wildbienenarten\
+  \ mit spezifischen Nahrungs- und Nestbaupflichten\n\u2502   \u2514\u2500\u2500 \
+  \ Gef\xE4hrdungskategorien und Schutzma\xDFnahmen f\xFCr gef\xE4hrdete Wildbienenarten\n\
+  \u2502       \u251C\u2500\u2500  Akut gef\xE4hrdete Wildbienenarten\n\u2502    \
+  \   \u2514\u2500\u2500  Gef\xE4hrdungskategorien und Schutzma\xDFnahmen f\xFCr gef\xE4\
+  hrdete Wildbienenarten in Deutschland\n\u2514\u2500\u2500  Bienen in Kultur und\
+  \ Gesellschaft\n    \u251C\u2500\u2500  Nistformen und Nistm\xF6glichkeiten von\
+  \ Wildbienen\n    \u251C\u2500\u2500  Entdeckungsgeschichte und rechtliche Aspekte\
+  \ der Efeu-Seidenbiene\n    \u2502   \u251C\u2500\u2500  Lebensraum und \xD6kologie\
+  \ der Cullumanushummel\n    \u2502   \u2502   \u251C\u2500\u2500  Lebensraum und\
+  \ \xD6kologie der Cullumanushummel\n    \u2502   \u2502   \u2502   \u251C\u2500\u2500\
+  \  Ph\xE4nologie der Cullumanushummel\n    \u2502   \u2502   \u2502   \u2514\u2500\
+  \u2500  Lebensraum und \xD6kologie der Cullumanushummel\n    \u2502   \u2502   \u2502\
+  \       \u251C\u2500\u2500  Lebensraum und Lebensweise der Cullumanushummel\n  \
+  \  \u2502   \u2502   \u2502       \u251C\u2500\u2500  Lebensraum und Nahrungsauswahl\
+  \ der Cullumanushummel\n    \u2502   \u2502   \u2502       \u251C\u2500\u2500  Fortpflanzungsbiologie\
+  \ der Cullumanushummel\n    \u2502   \u2502   \u2502       \u2514\u2500\u2500  Lebensraum\
+  \ und Verbreitung der Cullumanushummel\n    \u2502   \u2502   \u2514\u2500\u2500\
+  \  Lebensraum und Habitatbedingungen der Systrophiden\n    \u2502   \u2502     \
+  \  \u251C\u2500\u2500  Habitatbedingungen und Lebensraumverbreitung der Systrophiden\n\
+  \    \u2502   \u2502       \u2502   \u251C\u2500\u2500  Habitatbedingungen und Lebensraumverbreitung\
+  \ der Systrophiden in Mitteleuropa\n    \u2502   \u2502       \u2502   \u2514\u2500\
+  \u2500  Habitatbreite und -vielfalt der Systrophiden\n    \u2502   \u2502      \
+  \ \u2514\u2500\u2500  Wildbienen in Steppen- und W\xFCstengebieten\n    \u2502 \
+  \  \u2502           \u251C\u2500\u2500  Wildbienen in extremen Lebensr\xE4umen:\
+  \ Steppen- und W\xFCstengebiete\n    \u2502   \u2502           \u251C\u2500\u2500\
+  \  Verbreitung und Vorkommen der A. anthrisci in Europa\n    \u2502   \u2502   \
+  \        \u2514\u2500\u2500  Verbreitung und Vorkommen von Wildbienen in Mitteleuropa\n\
+  \    \u2502   \u2502               \u251C\u2500\u2500  Verbreitung und Vorkommen\
+  \ von Systrophiden in Mitteleuropa\n    \u2502   \u2502               \u2514\u2500\
+  \u2500  Verbreitung und Vorkommen von Wildbienen in Mitteleuropa mit besonderer\
+  \ Ber\xFCcksichtigung gef\xE4hrdeter Arten\n    \u2502   \u251C\u2500\u2500  Entdeckungsgeschichte\
+  \ der Efeu-Seidenbiene\n    \u2502   \u2502   \u251C\u2500\u2500  Die Entdeckungsgeschichte\
+  \ der Efeu-Seidenbiene: Historische Hintergr\xFCnde und fr\xFChe Anzeichen\n   \
+  \ \u2502   \u2502   \u2514\u2500\u2500  Taxonomische Geschichte der Efeu-Seidenbiene\n\
+  \    \u2502   \u2502       \u251C\u2500\u2500  Taxonomische Geschichte der Efeu-Seidenbiene:\
+  \ Erstbeschreibung und Nomenklatur\n    \u2502   \u2502       \u2514\u2500\u2500\
+  \  Taxonomische Geschichte der Efeu-Seidenbiene: Historische Forschungsbeitr\xE4\
+  ge\n    \u2502   \u2514\u2500\u2500  Rechtliche Aspekte der Bienenhaltung\n    \u2502\
+  \       \u251C\u2500\u2500  Merkmale und Beschreibungen von Wildbienenarten\n  \
+  \  \u2502       \u2502   \u251C\u2500\u2500  Beschreibungen von Wildbienenarten\
+  \ nach Merkmalen\n    \u2502       \u2502   \u2514\u2500\u2500  Merkmale und Beschreibungen\
+  \ von Wildbienenarten: K\xF6rperbau und -farbe\n    \u2502       \u251C\u2500\u2500\
+  \  Schlafgewohnheiten und Ruheverhalten der Bienen\n    \u2502       \u2502   \u251C\
+  \u2500\u2500  Schlafgewohnheiten und Ruheverhalten der Bienen: Wetterabh\xE4ngige\
+  \ und aktive Ruhepositionen\n    \u2502       \u2502   \u251C\u2500\u2500  Ruheverhalten\
+  \ der Bienen bei Schlaf und St\xF6rung\n    \u2502       \u2502   \u2502   \u251C\
+  \u2500\u2500  Ruheverhalten der Bienen bei Schlaf und St\xF6rung > Schlaf und Wachzustand\
+  \ der Bienen\n    \u2502       \u2502   \u2502   \u2514\u2500\u2500  Ruheverhalten\
+  \ der Bienen bei Schlaf und St\xF6rung > Orientierung und Verteidigungsmuster der\
+  \ Bienen\n    \u2502       \u2502   \u2514\u2500\u2500  Nestbau und -struktur\n\
+  \    \u2502       \u2502       \u251C\u2500\u2500  Nestbau und -struktur: Wabenbau\
+  \ und -beschichtung\n    \u2502       \u2502       \u2514\u2500\u2500  Nestbau und\
+  \ -struktur: Nistorte und Baumaterialien der Efeu-Seidenbiene\n    \u2502      \
+  \ \u251C\u2500\u2500  Rechtliche und wissenschaftliche Aspekte der Bienenhaltung\n\
+  \    \u2502       \u2514\u2500\u2500  Verteilung und Genetik der Westlichen Honigbiene\n\
+  \    \u2502           \u251C\u2500\u2500  Verteilung und Ausbreitung der Erdhummel\n\
+  \    \u2502           \u251C\u2500\u2500  Biotechnologische Anwendungen und Landwirtschaftliche\
+  \ Nutzung von Wildbienen\n    \u2502           \u2502   \u251C\u2500\u2500  Biotechnologische\
+  \ Anwendungen und Landwirtschaftliche Nutzung von Wildbienen: Mauerbienen als Best\xE4\
+  uber im Obstanbau\n    \u2502           \u2502   \u2514\u2500\u2500  Die Rolle der\
+  \ Honigbiene in der Best\xE4ubungsleistung und ihre Beziehungen zu anderen Wildbest\xE4\
+  ubern.\n    \u2502           \u2514\u2500\u2500  Genom und Genetik der Westlichen\
+  \ Honigbiene\n    \u251C\u2500\u2500  Etymologie der Wildbienen\n    \u251C\u2500\
+  \u2500  Bienen in der Heraldik und Symbolik\n    \u251C\u2500\u2500  Systematik\
+  \ und Taxonomie der Sandbienen\n    \u2502   \u251C\u2500\u2500  Umgangssprachliche\
+  \ Bezeichnungen der Sandbienen\n    \u2502   \u251C\u2500\u2500  Parasitismus bei\
+  \ Sandbienen und verwandten Bienen\n    \u2502   \u2502   \u251C\u2500\u2500  Wirte\
+  \ der Sandbienen-Blutbienen\n    \u2502   \u2502   \u2514\u2500\u2500  Brutparasiten\
+  \ der Sandbienen und verwandten Bienen\n    \u2502   \u251C\u2500\u2500  Systematik\
+  \ und Artabgrenzung der Sandbienen\n    \u2502   \u2502   \u251C\u2500\u2500  \xC4\
+  hnliche Arten und Abgrenzung der Sandbienen\n    \u2502   \u2502   \u2514\u2500\u2500\
+  \  Taxonomische Aspekte der Sandbienen\n    \u2502   \u2502       \u251C\u2500\u2500\
+  \  Taxonomische Probleme und Nomenklatur der Sandbienen\n    \u2502   \u2502   \
+  \    \u251C\u2500\u2500  Taxonomische Aspekte der Unterarten der Sandbienen\n  \
+  \  \u2502   \u2502       \u251C\u2500\u2500  Taxonomische Aspekte der Sandbienen:\
+  \ Artengruppen und Unterarten\n    \u2502   \u2502       \u251C\u2500\u2500  Taxonomische\
+  \ Beschreibungen der Sandbienen\n    \u2502   \u2502       \u251C\u2500\u2500  Taxonomische\
+  \ Aspekte der Sandbienen: Artnamen und Unterarten\n    \u2502   \u2502       \u251C\
+  \u2500\u2500  Nomenklatorische Aspekte der Sandbienen\n    \u2502   \u2502     \
+  \  \u2514\u2500\u2500  Taxonomische Aspekte der Sandbienen: Beschreibung und Klassifikation\n\
+  \    \u2502   \u251C\u2500\u2500  Schutz und Lebensweise der Sandbienen\n    \u2502\
+  \   \u2514\u2500\u2500  Gattungen der Kuckuckswespen (Chrysididae)\n    \u2514\u2500\
+  \u2500  Nahrung und Pollensammelverhalten\n        \u251C\u2500\u2500  Sozialverhalten:\
+  \ Arten und Formen\n        \u2514\u2500\u2500  Nahrung und Haupttrachtpflanzen\n\
+  \            \u251C\u2500\u2500  Haupttrachtpflanzen und Nahrungsmuster\n      \
+  \      \u2514\u2500\u2500  Pollensammelverhalten: Vielfalt der Haupttrachtpflanzen\n"
+data_df:
+  class_parts:
+  - OpsMixin
+  - IndexingMixin
+  - DirNamesMixin
+  - PandasObject
+  - NDFrame
+  - DataFrame
+  module_path: pandas.core.frame
+  id: 6
+  label: InjectionDatahandle
+  lab_name: injection_lab
+  remarks: english system prompt, german query prompt
+  use_taxonomy: true
+  taxomizer:
+    id: 6
+    label: Taxomizer
+    lab_name: injection_lab
+    class_parts:
+    - Taxomizer
+    module_path: beesup_llm.injection.taxomizing
+    chunk_txt_template: '{p}: {o}'
+    chunk_txt_key: txt
+    chunk_emb_key: emb
+    linkage_args:
+      method: ward
+      optimal_ordering: false
+    dist_flattening_config:
+      include_leaves: false
+      use_kneepoint: true
+      use_std: false
+      std_factor: 1.0
+    ddist_flattening_config:
+      include_leaves: false
+      use_kneepoint: true
+      use_std: false
+      std_factor: 1.0
+    tree_info:
+      bin_tree:
+        num_inodes: 3411
+        num_leaves: 3412
+        num_inodes_per_depth:
+        - 2
+        - 4
+        - 8
+        - 14
+        - 20
+        - 28
+        - 38
+        - 46
+        - 50
+        - 61
+        - 62
+        - 73
+        - 73
+        - 66
+        - 69
+        - 82
+        - 80
+        - 75
+        - 78
+        - 80
+        - 75
+        - 83
+        - 78
+        - 86
+        - 83
+        - 82
+        - 71
+        - 65
+        - 57
+        - 49
+        - 45
+        - 41
+        - 36
+        - 38
+        - 41
+        - 37
+        - 39
+        - 40
+        - 37
+        - 38
+        - 35
+        - 34
+        - 28
+        - 25
+        - 26
+        - 25
+        - 25
+        - 23
+        - 22
+        - 23
+        - 27
+        - 29
+        - 27
+        - 29
+        - 27
+        - 30
+        - 23
+        - 23
+        - 18
+        - 17
+        - 13
+        - 14
+        - 12
+        - 13
+        - 11
+        - 10
+        - 10
+        - 12
+        - 9
+        - 10
+        - 10
+        - 9
+        - 9
+        - 10
+        - 11
+        - 12
+        - 16
+        - 11
+        - 13
+        - 10
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 6
+        - 6
+        - 6
+        - 6
+        - 6
+        - 6
+        - 6
+        - 5
+        - 5
+        - 5
+        - 5
+        - 4
+        - 4
+        - 3
+        - 3
+        - 3
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 0
+        num_leaves_per_depth:
+        - 0
+        - 0
+        - 0
+        - 2
+        - 8
+        - 12
+        - 18
+        - 30
+        - 42
+        - 39
+        - 60
+        - 51
+        - 73
+        - 80
+        - 63
+        - 56
+        - 84
+        - 85
+        - 72
+        - 76
+        - 85
+        - 67
+        - 88
+        - 70
+        - 89
+        - 84
+        - 93
+        - 77
+        - 73
+        - 65
+        - 53
+        - 49
+        - 46
+        - 34
+        - 35
+        - 45
+        - 35
+        - 38
+        - 43
+        - 36
+        - 41
+        - 36
+        - 40
+        - 31
+        - 24
+        - 27
+        - 25
+        - 27
+        - 24
+        - 21
+        - 19
+        - 25
+        - 31
+        - 25
+        - 31
+        - 24
+        - 37
+        - 23
+        - 28
+        - 19
+        - 21
+        - 12
+        - 16
+        - 11
+        - 15
+        - 12
+        - 10
+        - 8
+        - 15
+        - 8
+        - 10
+        - 11
+        - 9
+        - 8
+        - 9
+        - 10
+        - 8
+        - 21
+        - 9
+        - 16
+        - 12
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 9
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 8
+        - 6
+        - 6
+        - 6
+        - 6
+        - 6
+        - 6
+        - 7
+        - 5
+        - 5
+        - 5
+        - 6
+        - 4
+        - 5
+        - 3
+        - 3
+        - 4
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 3
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 2
+        height: 244
+        avg_depth: 47.2097
+        width: 172
+        dia: 445
+        branching: 2.0
+        avg_degree: 0.9999
+        avg_balance: 14.4881
+      dist_threshold: 0.3255531545912865
+      dist_tree:
+        num_inodes: 120
+        num_leaves: 3412
+        num_inodes_per_depth:
+        - 2
+        - 2
+        - 4
+        - 7
+        - 8
+        - 12
+        - 14
+        - 14
+        - 17
+        - 12
+        - 9
+        - 9
+        - 3
+        - 1
+        - 2
+        - 1
+        - 2
+        - 0
+        num_leaves_per_depth:
+        - 0
+        - 129
+        - 0
+        - 1
+        - 365
+        - 201
+        - 38
+        - 369
+        - 21
+        - 373
+        - 617
+        - 454
+        - 517
+        - 116
+        - 0
+        - 28
+        - 0
+        - 183
+        height: 18
+        avg_depth: 10.1169
+        width: 626
+        dia: 28
+        branching: 29.6555
+        avg_degree: 0.9997
+        avg_balance: 0.0651
+      ddist_threshold: 0.05259171724319461
+      ddist_tree_raw:
+        num_inodes: 61
+        num_leaves: 3412
+        num_inodes_per_depth:
+        - 3
+        - 7
+        - 11
+        - 11
+        - 17
+        - 10
+        - 1
+        - 0
+        num_leaves_per_depth:
+        - 0
+        - 489
+        - 722
+        - 1120
+        - 379
+        - 398
+        - 295
+        - 9
+        height: 8
+        avg_depth: 4.1146
+        width: 1131
+        dia: 12
+        branching: 57.8167
+        avg_degree: 0.9997
+        avg_balance: 0.0124
+      ddist_tree_rec:
+        num_inodes: 78
+        num_leaves: 3412
+        num_inodes_per_depth:
+        - 3
+        - 8
+        - 14
+        - 14
+        - 21
+        - 15
+        - 2
+        - 0
+        num_leaves_per_depth:
+        - 0
+        - 129
+        - 371
+        - 1810
+        - 392
+        - 291
+        - 294
+        - 125
+        height: 8
+        avg_depth: 4.4989
+        width: 1824
+        dia: 12
+        branching: 45.2727
+        avg_degree: 0.9997
+        avg_balance: 0.0074
+    chunks_df:
+      filename: chunks_df.pkl
+      type: DataFrame
+      columns: tidx, kidx, spo, s, p, o, source_name, attr_type, n_units, n_words,
+        emb, label, txt, n_tokens, node_id, toc, toc_until, hpath, prompt_messages,
+        gold_message
+      n_rows: 3412
+      overwrite: false
+    llm_pipe:
+      class_parts:
+      - LLMPipeline
+      - LlamaPipeline
+      module_path: beesup_llm.llm
+      label: LlamaPipeline
+      lab_name: injection_lab
+      name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+      generation_config:
+        return_dict_in_generate: false
+        max_time: 1200
+        do_sample: false
+        stop_strings:
+        - '
+
+          '
+        max_new_tokens: 100
+        pad_token: <|begin_of_text|>
+        pad_token_id: 128000
+      inference_tokenizer_config:
+        padding: longest
+        padding_side: left
+        max_length: 8192
+        pad_token: <|begin_of_text|>
+        pad_token_id: 128000
+      training_tokenizer_config:
+        padding: longest
+        padding_side: right
+        max_length: 8192
+        pad_token: <|end_of_text|>
+        pad_token_id: 128001
+      pipeline_args:
+        return_full_text: false
+        clean_up_tokenization_spaces: true
+    linkage_matrix:
+      filename: linkage_matrix.pkl
+      type: ndarray
+      shape: (3411, 4)
+      dtype: float64
+    bin_tree:
+      filename: bin_tree.pkl
+      type: Node
+      size: 6823
+      height: 244
+    dist_tree:
+      filename: dist_tree.pkl
+      type: Node
+      size: 3532
+      height: 18
+    ddist_tree:
+      filename: ddist_tree.pkl
+      type: Node
+      size: 3490
+      height: 8
+    emb_tree:
+      filename: emb_tree.pkl
+      type: Node
+      size: 3490
+      height: 8
+    llm_tree:
+      filename: llm_tree.pkl
+      type: Node
+      size: 3490
+      height: 8
+  data_df:
+    type: DataFrame
+    filename: data_df.pkl
+    n_rows: 3412
+    columns: kidx, tidx, prompt_messages, gold_message, toc, toc_until, node_id, hpath,
+      split
+    overwrite: false
+llm_pipe:
+  class_parts:
+  - LLMPipeline
+  - LlamaPipeline
+  module_path: beesup_llm.llm
+  label: LlamaPipeline
+  lab_name: injection_lab
+  name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+  generation_config:
+    return_dict_in_generate: false
+    max_time: 1200
+    do_sample: false
+    max_new_tokens: 4096
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  inference_tokenizer_config:
+    padding: longest
+    padding_side: left
+    max_length: 8192
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  training_tokenizer_config:
+    padding: longest
+    padding_side: right
+    max_length: 8192
+    pad_token: <|end_of_text|>
+    pad_token_id: 128001
+  pipeline_args:
+    return_full_text: false
+    clean_up_tokenization_spaces: true
+rag_pipe:
+  class_parts:
+  - RAGPipeline
+  module_path: beesup_llm.rag
+  label: RAGPipeline
+  lab_name: injection_lab
+  chunk_txt_key: spo
+  chunk_emb_key: emb
+  chunk_instruction: ''
+  query_txt_key: question
+  query_emb_key: question_emb
+  query_instruction: Given a question, retrieve passages that answer the question
+  chunks_df:
+    class_parts:
+    - Datahandle
+    - ChunksDatahandle
+    module_path: labtools.datahandle
+    id: 3
+    label: RAG_CHUNKS
+    lab_name: injection_lab
+    remarks: 'emb = spo_emb, excluded rows with p="Wissenschaftlicher Name" '
+    emb_pipe:
+      id: 1
+      label: NVEmbedPipeline
+      lab_name: injection_lab
+      class_parts:
+      - EMBPipeline
+      - NVEmbedPipeline
+      module_path: beesup_llm.emb
+      name_or_path: nvidia/NV-Embed-v2
+      instruction: ''
+    data_df:
+      type: DataFrame
+      filename: data_df.pkl
+      n_rows: 3412
+      columns: spo, s, p, o, source_name, attr_type, n_units, n_words, emb
+      overwrite: false
+  limiters:
+  - class_parts:
+    - RAGLimiter
+    - NumLimiter
+    module_path: beesup_llm.rag
+    limit: 100
+  - class_parts:
+    - RAGLimiter
+    - TokenLimiter
+    module_path: beesup_llm.rag
+    limit: 1000
+  - class_parts:
+    - RAGLimiter
+    - KneeLimiter
+    module_path: beesup_llm.rag
+    curve: convex
+    direction: decreasing

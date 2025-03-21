@@ -1,0 +1,920 @@
+id: 4
+label: InjectionExperiment
+lab_name: injection_lab
+class_parts:
+- FinetuningExperiment
+- InjectionExperiment
+module_path: beesup_llm.injection.experiment
+do_eval_base_model_rag: true
+do_eval_lora_model_rag: true
+done: false
+do_eval_base_model: true
+do_eval_lora_model: true
+do_train: true
+test_mode: false
+lora_config:
+  r: 32
+  lora_alpha: 3
+  use_rslora: true
+  target_modules: all-linear
+  lora_dropout: 0.05
+  bias: none
+  task_type: CAUSAL_L
+sft_config:
+  num_train_epochs: 10
+  output_dir: /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0004_InjectionExperiment
+  auto_find_batch_size: true
+  per_device_train_batch_size: 8
+  gradient_accumulation_steps: 1
+  learning_rate: 0.0002
+  optim: paged_adamw_8bit
+  save_strategy: 'no'
+  save_total_limit: 1
+  eval_strategy: 'no'
+  logging_strategy: steps
+  logging_steps: 1
+  logging_first_step: true
+  do_train: true
+  do_eval: false
+  report_to: none
+  max_seq_length: 4096
+  packing: false
+  seed: 42
+evaluators:
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - MCQEvaluator
+  module_path: beesup_llm.injection.evaluation
+  id: 3
+  label: BEES
+  lab_name: injection_lab
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 1000
+    columns: sidx, kidx, add_kidc, add_tidc, emb_col, question, choices, answer
+    overwrite: false
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - MCQEvaluator
+  module_path: beesup_llm.injection.evaluation
+  id: 4
+  label: MMLU
+  lab_name: injection_lab
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 1000
+    columns: mmluidx, question, subject, choices, answer
+    overwrite: false
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - QDQEvaluator
+  module_path: beesup_llm.injection.evaluation
+  id: 1
+  label: QDQEvaluator
+  lab_name: injection_lab
+  n_fewshots: 3
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 30
+    columns: question, target_attr, gold_items, question_emb
+    overwrite: false
+- class_parts:
+  - LLMEvaluator
+  - InjectionEvaluator
+  - FFQEvaluator
+  module_path: beesup_llm.injection.evaluation
+  id: 1
+  label: BEES
+  lab_name: injection_lab
+  eval_df:
+    type: DataFrame
+    filename: eval_df.pkl
+    n_rows: 5
+    columns: sidx, kidx, tidx, add_kidc, emb_col, question, answer, question_emb
+    overwrite: false
+toc: " Wildbienen\n\u251C\u2500\u2500  Nistweisen und Sozialverhalten von Wildbienen\n\
+  \u251C\u2500\u2500  Taxonomie und Systematik der Sandbienen (Colletidae)\n\u2502\
+  \   \u251C\u2500\u2500  Erstbeschreibungen und Nomenklatur\n\u2502   \u251C\u2500\
+  \u2500  Kuckuckswespen (Chrysididae) in der Verwandtschaft der Sandbienen (Colletidae)\n\
+  \u2502   \u2502   \u251C\u2500\u2500  Familien\xFCbereinstimmungen von Kuckuckswespen\n\
+  \u2502   \u2502   \u2514\u2500\u2500  Gattungen der Kuckuckswespen (Chrysididae)\n\
+  \u2502   \u2514\u2500\u2500  Systematik und Artabgrenzung innerhalb der Sandbienen\
+  \ (Colletidae)\n\u2502       \u251C\u2500\u2500  Taxonomische Merkmale und Artengruppen\
+  \ innerhalb der Sandbienen (Colletidae)\n\u2502       \u2514\u2500\u2500  Artabgrenzung\
+  \ innerhalb der Sandbienen (Colletidae)\n\u251C\u2500\u2500  Gef\xE4hrdung und Schutz\
+  \ von Wildbienen\n\u2502   \u251C\u2500\u2500  Schutzma\xDFnahmen f\xFCr gef\xE4\
+  hrdete Wildbienenarten\n\u2502   \u2514\u2500\u2500  Gef\xE4hrdung: Bedrohte Wildbienenarten\n\
+  \u251C\u2500\u2500  Lebensraum und Verbreitung von Wildbienen\n\u2502   \u251C\u2500\
+  \u2500  Verbreitung und Lebensraum von Wildbienen-Arten in Europa\n\u2502   \u251C\
+  \u2500\u2500  Habitatbedingungen und Verbreitungsbegrenzungen von Wildbienen\n\u2502\
+  \   \u2514\u2500\u2500  H\xF6henstufen und Gebirgsmagerrasen als Lebensraum der\
+  \ Alpen-Andrena\n\u251C\u2500\u2500  Merkmale und Kurzbeschreibungen von Wildbienenarten\n\
+  \u2502   \u251C\u2500\u2500  Merkmale und Beschreibungen einzelner Wildbienenarten\n\
+  \u2502   \u2514\u2500\u2500  Beschreibungen und Kurzbeschreibungen von Wildbienenarten\n\
+  \u251C\u2500\u2500  Lebensweise und Fortpflanzung von Kuckuckshummeln\n\u2502  \
+  \ \u251C\u2500\u2500  Fortpflanzungsverhalten von Kuckuckshummeln\n\u2502   \u251C\
+  \u2500\u2500  \xDCberwinterungs- und Fortpflanzungsverhalten\n\u2502   \u251C\u2500\
+  \u2500  Lebensraum und Nahrungsaufnahme\n\u2502   \u2514\u2500\u2500  Vorkommen\
+  \ und Lebensweise der Kuckuckshummel\n\u251C\u2500\u2500  Nahrung und Pollensammelverhalten\n\
+  \u251C\u2500\u2500  Wirtsbiene\n\u251C\u2500\u2500  Entdeckungsgeschichte der Efeu-Seidenbiene\n\
+  \u2502   \u251C\u2500\u2500  Entdeckung und Rechtliche Aspekte der Efeu-Seidenbiene\n\
+  \u2502   \u251C\u2500\u2500  Taxonomie der Schwarzen M\xF6rtelbiene\n\u2502   \u251C\
+  \u2500\u2500  Genom und Evolution der Westlichen Honigbiene\n\u2502   \u251C\u2500\
+  \u2500  Die Bienen in der Kultur und Heraldik\n\u2502   \u251C\u2500\u2500  Wissenschaftliche\
+  \ Forschung und Anwendung der Mauerbiene\n\u2502   \u251C\u2500\u2500  Sinneswahrnehmung\
+  \ und Verteidigungsmechanismen der Efeu-Seidenbiene\n\u2502   \u2514\u2500\u2500\
+  \  Nestbau und Nesthygiene\n\u251C\u2500\u2500  Baumaterialien und Requisiten\n\u2514\
+  \u2500\u2500  Etymologie der Wildbienenarten\n"
+data_df:
+  class_parts:
+  - OpsMixin
+  - IndexingMixin
+  - DirNamesMixin
+  - PandasObject
+  - NDFrame
+  - DataFrame
+  module_path: pandas.core.frame
+  id: 4
+  label: InjectionDatahandle
+  lab_name: injection_lab
+  remarks: english system prompt, german query prompt
+  use_taxonomy: true
+  taxomizer:
+    id: 4
+    label: Taxomizer
+    lab_name: injection_lab
+    class_parts:
+    - Taxomizer
+    module_path: beesup_llm.injection.taxomizing
+    chunk_txt_template: '{p}: {o}'
+    chunk_txt_key: txt
+    chunk_emb_key: emb
+    linkage_args:
+      method: ward
+      optimal_ordering: false
+    dist_flattening_config:
+      include_leaves: false
+      use_kneepoint: true
+      use_std: false
+      std_factor: 1.0
+    ddist_flattening_config:
+      include_leaves: false
+      use_kneepoint: true
+      use_std: false
+      std_factor: 1.0
+    tree_info:
+      bin_tree:
+        num_inodes: 3411
+        num_leaves: 3412
+        num_inodes_per_depth:
+        - 2
+        - 4
+        - 7
+        - 14
+        - 25
+        - 42
+        - 55
+        - 65
+        - 82
+        - 98
+        - 117
+        - 133
+        - 137
+        - 134
+        - 137
+        - 140
+        - 141
+        - 144
+        - 131
+        - 104
+        - 82
+        - 76
+        - 71
+        - 68
+        - 67
+        - 58
+        - 50
+        - 45
+        - 46
+        - 43
+        - 41
+        - 33
+        - 31
+        - 24
+        - 17
+        - 18
+        - 14
+        - 16
+        - 14
+        - 14
+        - 15
+        - 14
+        - 14
+        - 16
+        - 13
+        - 15
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 5
+        - 5
+        - 5
+        - 5
+        - 4
+        - 4
+        - 4
+        - 4
+        - 4
+        - 3
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 0
+        num_leaves_per_depth:
+        - 0
+        - 0
+        - 1
+        - 0
+        - 3
+        - 8
+        - 29
+        - 45
+        - 48
+        - 66
+        - 79
+        - 101
+        - 129
+        - 140
+        - 131
+        - 134
+        - 139
+        - 138
+        - 157
+        - 158
+        - 126
+        - 88
+        - 81
+        - 74
+        - 69
+        - 76
+        - 66
+        - 55
+        - 44
+        - 49
+        - 45
+        - 49
+        - 35
+        - 38
+        - 31
+        - 16
+        - 22
+        - 12
+        - 18
+        - 14
+        - 13
+        - 16
+        - 14
+        - 12
+        - 19
+        - 11
+        - 22
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 8
+        - 9
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 7
+        - 9
+        - 5
+        - 5
+        - 5
+        - 6
+        - 4
+        - 4
+        - 4
+        - 4
+        - 5
+        - 4
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 2
+        - 3
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 1
+        - 2
+        height: 247
+        avg_depth: 40.4268
+        width: 288
+        dia: 456
+        branching: 2.0
+        avg_degree: 0.9999
+        avg_balance: 13.9851
+      dist_threshold: 0.34639370141667314
+      dist_tree:
+        num_inodes: 103
+        num_leaves: 3412
+        num_inodes_per_depth:
+        - 2
+        - 4
+        - 4
+        - 8
+        - 12
+        - 16
+        - 14
+        - 15
+        - 13
+        - 9
+        - 4
+        - 1
+        - 0
+        num_leaves_per_depth:
+        - 0
+        - 0
+        - 328
+        - 0
+        - 873
+        - 496
+        - 414
+        - 413
+        - 365
+        - 340
+        - 162
+        - 18
+        - 3
+        height: 13
+        avg_depth: 6.8108
+        width: 885
+        dia: 21
+        branching: 34.4314
+        avg_degree: 0.9997
+        avg_balance: 0.0381
+      ddist_threshold: 0.11682064921095825
+      ddist_tree_raw:
+        num_inodes: 28
+        num_leaves: 3412
+        num_inodes_per_depth:
+        - 10
+        - 15
+        - 2
+        - 0
+        num_leaves_per_depth:
+        - 1069
+        - 973
+        - 1007
+        - 363
+        height: 4
+        avg_depth: 2.1901
+        width: 1079
+        dia: 7
+        branching: 87.4074
+        avg_degree: 0.9997
+        avg_balance: 0.0035
+      ddist_tree_rec:
+        num_inodes: 37
+        num_leaves: 3412
+        num_inodes_per_depth:
+        - 11
+        - 21
+        - 4
+        - 0
+        num_leaves_per_depth:
+        - 0
+        - 1591
+        - 943
+        - 878
+        height: 4
+        avg_depth: 2.7799
+        width: 1612
+        dia: 7
+        branching: 95.4722
+        avg_degree: 0.9997
+        avg_balance: 0.0009
+    chunks_df:
+      filename: chunks_df.pkl
+      type: DataFrame
+      columns: tidx, kidx, spo, s, p, o, source_name, attr_type, n_units, n_words,
+        emb, label, txt, n_tokens, node_id, toc, toc_until, hpath, prompt_messages,
+        gold_message
+      n_rows: 3412
+      overwrite: false
+    llm_pipe:
+      class_parts:
+      - LLMPipeline
+      - LlamaPipeline
+      module_path: beesup_llm.llm
+      label: LlamaPipeline
+      lab_name: injection_lab
+      name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+      generation_config:
+        return_dict_in_generate: false
+        max_time: 1200
+        do_sample: false
+        stop_strings:
+        - '
+
+          '
+        max_new_tokens: 100
+        pad_token: <|begin_of_text|>
+        pad_token_id: 128000
+      inference_tokenizer_config:
+        padding: longest
+        padding_side: left
+        max_length: 8192
+        pad_token: <|begin_of_text|>
+        pad_token_id: 128000
+      training_tokenizer_config:
+        padding: longest
+        padding_side: right
+        max_length: 8192
+        pad_token: <|end_of_text|>
+        pad_token_id: 128001
+      pipeline_args:
+        return_full_text: false
+        clean_up_tokenization_spaces: true
+    linkage_matrix:
+      filename: linkage_matrix.pkl
+      type: ndarray
+      shape: (3411, 4)
+      dtype: float64
+    bin_tree:
+      filename: bin_tree.pkl
+      type: Node
+      size: 6823
+      height: 247
+    dist_tree:
+      filename: dist_tree.pkl
+      type: Node
+      size: 3515
+      height: 13
+    ddist_tree:
+      filename: ddist_tree.pkl
+      type: Node
+      size: 3449
+      height: 4
+    emb_tree:
+      filename: emb_tree.pkl
+      type: Node
+      size: 3449
+      height: 4
+    llm_tree:
+      filename: llm_tree.pkl
+      type: Node
+      size: 3449
+      height: 4
+  data_df:
+    type: DataFrame
+    filename: data_df.pkl
+    n_rows: 3412
+    columns: kidx, tidx, prompt_messages, gold_message, toc, toc_until, node_id, hpath,
+      split
+    overwrite: false
+llm_pipe:
+  class_parts:
+  - LLMPipeline
+  - LlamaPipeline
+  module_path: beesup_llm.llm
+  label: LlamaPipeline
+  lab_name: injection_lab
+  name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+  generation_config:
+    return_dict_in_generate: false
+    max_time: 1200
+    do_sample: false
+    max_new_tokens: 4096
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  inference_tokenizer_config:
+    padding: longest
+    padding_side: left
+    max_length: 8192
+    pad_token: <|begin_of_text|>
+    pad_token_id: 128000
+  training_tokenizer_config:
+    padding: longest
+    padding_side: right
+    max_length: 8192
+    pad_token: <|end_of_text|>
+    pad_token_id: 128001
+  pipeline_args:
+    return_full_text: false
+    clean_up_tokenization_spaces: true
+rag_pipe:
+  class_parts:
+  - RAGPipeline
+  module_path: beesup_llm.rag
+  label: RAGPipeline
+  lab_name: injection_lab
+  chunk_txt_key: spo
+  chunk_emb_key: emb
+  chunk_instruction: ''
+  query_txt_key: question
+  query_emb_key: question_emb
+  query_instruction: Given a question, retrieve passages that answer the question
+  chunks_df:
+    class_parts:
+    - Datahandle
+    - ChunksDatahandle
+    module_path: labtools.datahandle
+    id: 3
+    label: RAG_CHUNKS
+    lab_name: injection_lab
+    remarks: 'emb = spo_emb, excluded rows with p="Wissenschaftlicher Name" '
+    emb_pipe:
+      id: 1
+      label: NVEmbedPipeline
+      lab_name: injection_lab
+      class_parts:
+      - EMBPipeline
+      - NVEmbedPipeline
+      module_path: beesup_llm.emb
+      name_or_path: nvidia/NV-Embed-v2
+      instruction: ''
+    data_df:
+      type: DataFrame
+      filename: data_df.pkl
+      n_rows: 3412
+      columns: spo, s, p, o, source_name, attr_type, n_units, n_words, emb
+      overwrite: false
+  limiters:
+  - class_parts:
+    - RAGLimiter
+    - NumLimiter
+    module_path: beesup_llm.rag
+    limit: 100
+  - class_parts:
+    - RAGLimiter
+    - TokenLimiter
+    module_path: beesup_llm.rag
+    limit: 1000
+  - class_parts:
+    - RAGLimiter
+    - KneeLimiter
+    module_path: beesup_llm.rag
+    curve: convex
+    direction: decreasing
