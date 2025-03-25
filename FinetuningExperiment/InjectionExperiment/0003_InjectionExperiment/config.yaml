@@ -5,9 +5,9 @@ class_parts:
 - FinetuningExperiment
 - InjectionExperiment
 module_path: beesup_llm.injection.experiment
-do_eval_base_model_rag: true
-do_eval_lora_model_rag: true
-done: false
+do_eval_base_model_rag: false
+do_eval_lora_model_rag: false
+done: true
 do_eval_base_model: true
 do_eval_lora_model: true
 do_train: true
@@ -123,15 +123,20 @@ toc: " Wildbienen\n\u251C\u2500\u2500  Gef\xE4hrdete Wildbienenarten\n\u2502   \
   \  \u2514\u2500\u2500  Baumaterialien und Requisiten f\xFCr die Nestherstellung\n\
   \        \u251C\u2500\u2500  Baumaterialien f\xFCr die Nestherstellung\n       \
   \ \u2514\u2500\u2500  Requisiten: Fels- und Steinelemente\n"
+timestamp_start: 2025-03-24_11-40-24
+lora_info:
+  n_trainable_params: 83886080
+  n_total_params: 8114147328
+  p_trainable_params: 0.010338249554642546
+  lora_scale: 0.5303300858899106
+timestamp_train_start: 2025-03-24_11-55-13
+timestamp_train_done: 2025-03-25_07-31-36
+timestamp_done: 2025-03-25_07-31-36
 data_df:
   class_parts:
-  - OpsMixin
-  - IndexingMixin
-  - DirNamesMixin
-  - PandasObject
-  - NDFrame
-  - DataFrame
-  module_path: pandas.core.frame
+  - Datahandle
+  - InjectionDatahandle
+  module_path: labtools.datahandle
   id: 3
   label: InjectionDatahandle
   lab_name: injection_lab
@@ -149,17 +154,14 @@ data_df:
     chunk_emb_key: emb
     linkage_args:
       method: ward
-      optimal_ordering: false
     dist_flattening_config:
       include_leaves: false
       use_kneepoint: true
       use_std: false
-      std_factor: 1.0
     ddist_flattening_config:
       include_leaves: false
       use_kneepoint: true
       use_std: false
-      std_factor: 1.0
     tree_info:
       bin_tree:
         num_inodes: 3411
@@ -498,11 +500,78 @@ data_df:
     chunks_df:
       filename: chunks_df.pkl
       type: DataFrame
-      columns: tidx, kidx, spo, s, p, o, source_name, attr_type, n_units, n_words,
-        emb, label, txt, n_tokens, node_id, toc, toc_until, hpath, prompt_messages,
-        gold_message
+      columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb,
+        label, txt, n_tokens
       n_rows: 3412
       overwrite: false
+      id: 2
+      label: ChunksDatahandle
+      lab_name: injection_lab
+      class_parts:
+      - Datahandle
+      - ChunksDatahandle
+      module_path: labtools.datahandle
+      remarks: 'emb = po_emb, excluded rows with p="Wissenschaftlicher Name" '
+      drop_emb_duplicates: false
+      emb_dh:
+        id: 2
+        label: EmbeddingDatahandle
+        lab_name: injection_lab
+        class_parts:
+        - Datahandle
+        - EmbeddingDatahandle
+        module_path: labtools.datahandle
+        emb_templates:
+          s: '{s}'
+          p: '{p}'
+          o: '{o}'
+          spo: '{s}
+
+
+            {p}
+
+
+            {o}'
+          po: '{p}
+
+
+            {o}'
+          so: '{s}
+
+
+            {o}'
+        base_dh:
+          id: 1
+          label: wildbienen_database
+          lab_name: injection_lab
+          class_parts:
+          - Datahandle
+          - BaseDatahandle
+          module_path: labtools.datahandle
+        emb_pipe_config:
+          id: 1
+          label: NVEmbedPipeline
+          lab_name: injection_lab
+          class_parts:
+          - EMBPipeline
+          - NVEmbedPipeline
+          module_path: beesup_llm.emb
+          name_or_path: nvidia/NV-Embed-v2
+          instruction: 'Instruct: Given a passage, retrieve a suitable header
+
+
+
+            Passage:
+
+
+            '
+      data_df:
+        filename: data_df.pkl
+        type: DataFrame
+        columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb,
+          label
+        n_rows: 3412
+        overwrite: false
     llm_pipe:
       class_parts:
       - LLMPipeline

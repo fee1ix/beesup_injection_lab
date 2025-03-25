@@ -18,18 +18,15 @@ taxomizer:
   chunk_txt_key: txt
   chunk_emb_key: emb
   linkage_args:
-    method: ward
-    optimal_ordering: false
+    method: complete
   dist_flattening_config:
     include_leaves: false
     use_kneepoint: true
     use_std: false
-    std_factor: 1.0
   ddist_flattening_config:
     include_leaves: false
     use_kneepoint: true
     use_std: false
-    std_factor: 1.0
   tree_info:
     bin_tree:
       num_inodes: 3411
@@ -612,10 +609,78 @@ taxomizer:
   chunks_df:
     filename: chunks_df.pkl
     type: DataFrame
-    columns: tidx, kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb,
-      label, txt, n_tokens, node_id, toc, toc_until, hpath, prompt_messages, gold_message
+    columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label,
+      txt, n_tokens
     n_rows: 3412
     overwrite: false
+    id: 2
+    label: ChunksDatahandle
+    lab_name: injection_lab
+    class_parts:
+    - Datahandle
+    - ChunksDatahandle
+    module_path: labtools.datahandle
+    remarks: 'emb = po_emb, excluded rows with p="Wissenschaftlicher Name" '
+    drop_emb_duplicates: false
+    emb_dh:
+      id: 2
+      label: EmbeddingDatahandle
+      lab_name: injection_lab
+      class_parts:
+      - Datahandle
+      - EmbeddingDatahandle
+      module_path: labtools.datahandle
+      emb_templates:
+        s: '{s}'
+        p: '{p}'
+        o: '{o}'
+        spo: '{s}
+
+
+          {p}
+
+
+          {o}'
+        po: '{p}
+
+
+          {o}'
+        so: '{s}
+
+
+          {o}'
+      base_dh:
+        id: 1
+        label: wildbienen_database
+        lab_name: injection_lab
+        class_parts:
+        - Datahandle
+        - BaseDatahandle
+        module_path: labtools.datahandle
+      emb_pipe_config:
+        id: 1
+        label: NVEmbedPipeline
+        lab_name: injection_lab
+        class_parts:
+        - EMBPipeline
+        - NVEmbedPipeline
+        module_path: beesup_llm.emb
+        name_or_path: nvidia/NV-Embed-v2
+        instruction: 'Instruct: Given a passage, retrieve a suitable header
+
+
+
+          Passage:
+
+
+          '
+    data_df:
+      filename: data_df.pkl
+      type: DataFrame
+      columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb,
+        label
+      n_rows: 3412
+      overwrite: false
   llm_pipe:
     class_parts:
     - LLMPipeline

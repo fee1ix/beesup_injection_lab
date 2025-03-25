@@ -14,6 +14,7 @@ taxomizer:
   class_parts:
   - Taxomizer
   module_path: beesup_llm.injection.taxomizing
+  chunk_txt_template: '{p}: {o}'
   chunk_txt_key: spo
   chunk_emb_key: emb
   linkage_args:
@@ -90,6 +91,13 @@ taxomizer:
 
 
           '
+    data_df:
+      type: DataFrame
+      filename: data_df.pkl
+      n_rows: 3412
+      columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb,
+        label
+      overwrite: false
   tree_info:
     bin_tree:
       num_nodes: 6823
@@ -138,18 +146,17 @@ taxomizer:
       avg_depth: 3.83
       width: 1647
   chunks_df:
-    type: DataFrame
     filename: chunks_df.pkl
-    n_rows: 3412
+    type: DataFrame
     columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label,
-      node_id
+      node_id, n_tokens
+    n_rows: 3412
     overwrite: false
   llm_pipe:
     class_parts:
     - LLMPipeline
     - LlamaPipeline
     module_path: beesup_llm.llm
-    id: 1
     label: LlamaPipeline
     lab_name: injection_lab
     name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
@@ -179,6 +186,24 @@ taxomizer:
     pipeline_args:
       return_full_text: false
       clean_up_tokenization_spaces: true
+  linkage_matrix:
+    filename: linkage_matrix.pkl
+    type: NoneType
+  bin_tree:
+    filename: bin_tree.pkl
+    type: NoneType
+  dist_tree:
+    filename: dist_tree.pkl
+    type: NoneType
+  ddist_tree:
+    filename: ddist_tree.pkl
+    type: NoneType
+  emb_tree:
+    filename: emb_tree.pkl
+    type: NoneType
+  llm_tree:
+    filename: llm_tree.pkl
+    type: NoneType
 data_df:
   type: DataFrame
   filename: data_df.pkl
