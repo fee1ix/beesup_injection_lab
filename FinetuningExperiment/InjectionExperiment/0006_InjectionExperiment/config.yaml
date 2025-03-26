@@ -125,6 +125,12 @@ toc: " Wildbienen\n\u251C\u2500\u2500  Gef\xE4hrdete Wildbienenarten\n\u2502   \
   \  \u2514\u2500\u2500  Baumaterialien und Requisiten f\xFCr die Nestherstellung\n\
   \        \u251C\u2500\u2500  Baumaterialien f\xFCr die Nestherstellung\n       \
   \ \u2514\u2500\u2500  Requisiten: Fels- und Steinelemente\n"
+timestamp_start: 2025-03-26_03-21-44
+lora_info:
+  n_trainable_params: 83886080
+  n_total_params: 8114147328
+  p_trainable_params: 0.010338249554642546
+  lora_scale: 0.5303300858899106
 data_df:
   class_parts:
   - Datahandle
