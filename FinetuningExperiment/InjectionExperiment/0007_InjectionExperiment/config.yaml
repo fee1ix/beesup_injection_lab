@@ -133,6 +133,12 @@ toc: " Wildbienen\n\u251C\u2500\u2500  Nistweisen und Sozialverhalten von Wildbi
   \ und Verteidigungsmechanismen der Efeu-Seidenbiene\n\u2502   \u2514\u2500\u2500\
   \  Nestbau und Nesthygiene\n\u251C\u2500\u2500  Baumaterialien und Requisiten\n\u2514\
   \u2500\u2500  Etymologie der Wildbienenarten\n"
+timestamp_start: 2025-03-27_21-42-02
+lora_info:
+  n_trainable_params: 83886080
+  n_total_params: 8114147328
+  p_trainable_params: 0.010338249554642546
+  lora_scale: 0.5303300858899106
 data_df:
   class_parts:
   - Datahandle
