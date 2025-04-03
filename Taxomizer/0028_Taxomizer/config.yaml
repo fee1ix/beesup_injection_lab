@@ -1,0 +1,443 @@
+id: 28
+label: Taxomizer
+lab_name: injection_lab
+class_parts:
+- Taxomizer
+module_path: beesup_llm.injection.taxomizing
+chunk_txt_template: '{p}: {o}'
+chunk_txt_key: txt
+chunk_emb_key: emb
+linkage_args:
+  method: ward
+  optimal_ordering: false
+dist_flattening_config:
+  include_leaves: false
+  use_kneepoint: false
+  use_std: true
+  std_factor: 3.0
+ddist_flattening_config:
+  include_leaves: false
+  use_kneepoint: false
+  use_std: true
+  std_factor: 3.0
+tree_info:
+  bin_tree:
+    num_inodes: 3411
+    num_leaves: 3412
+    num_inodes_per_depth:
+    - 2
+    - 4
+    - 8
+    - 16
+    - 30
+    - 56
+    - 96
+    - 160
+    - 227
+    - 286
+    - 316
+    - 314
+    - 284
+    - 221
+    - 172
+    - 125
+    - 103
+    - 76
+    - 62
+    - 52
+    - 50
+    - 45
+    - 42
+    - 37
+    - 39
+    - 40
+    - 39
+    - 37
+    - 32
+    - 27
+    - 24
+    - 23
+    - 23
+    - 21
+    - 20
+    - 16
+    - 12
+    - 8
+    - 7
+    - 7
+    - 6
+    - 6
+    - 5
+    - 5
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 2
+    - 2
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 0
+    num_leaves_per_depth:
+    - 0
+    - 0
+    - 0
+    - 0
+    - 2
+    - 4
+    - 16
+    - 32
+    - 93
+    - 168
+    - 256
+    - 318
+    - 344
+    - 347
+    - 270
+    - 219
+    - 147
+    - 130
+    - 90
+    - 72
+    - 54
+    - 55
+    - 48
+    - 47
+    - 35
+    - 38
+    - 41
+    - 41
+    - 42
+    - 37
+    - 30
+    - 25
+    - 23
+    - 25
+    - 22
+    - 24
+    - 20
+    - 16
+    - 9
+    - 7
+    - 8
+    - 6
+    - 7
+    - 5
+    - 6
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 4
+    - 5
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 3
+    - 4
+    - 2
+    - 3
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 1
+    - 2
+    height: 121
+    avg_depth: 20.1237
+    width: 632
+    dia: 231
+    branching: 2.0
+    avg_degree: 0.9999
+    avg_balance: 4.3579
+  dist_threshold: 1.408408838017241
+  dist_tree:
+    num_inodes: 28
+    num_leaves: 3412
+    num_inodes_per_depth:
+    - 2
+    - 3
+    - 6
+    - 6
+    - 8
+    - 2
+    - 0
+    num_leaves_per_depth:
+    - 0
+    - 511
+    - 0
+    - 1049
+    - 598
+    - 1089
+    - 165
+    height: 7
+    avg_depth: 4.6509
+    width: 1091
+    dia: 13
+    branching: 127.2963
+    avg_degree: 0.9997
+    avg_balance: 0.0058
+  ddist_threshold: 4.667734650805836
+  ddist_tree_raw:
+    num_inodes: 10
+    num_leaves: 3412
+    num_inodes_per_depth:
+    - 6
+    - 3
+    - 0
+    num_leaves_per_depth:
+    - 847
+    - 1974
+    - 591
+    height: 3
+    avg_depth: 1.9229
+    width: 1977
+    dia: 5
+    branching: 285.3333
+    avg_degree: 0.9997
+    avg_balance: 0.0009
+  ddist_tree_rec:
+    num_inodes: 12
+    num_leaves: 3412
+    num_inodes_per_depth:
+    - 7
+    - 4
+    - 0
+    num_leaves_per_depth:
+    - 0
+    - 2718
+    - 694
+    height: 3
+    avg_depth: 2.2001
+    width: 2722
+    dia: 5
+    branching: 310.5455
+    avg_degree: 0.9997
+    avg_balance: 0.0003
+chunks_df:
+  filename: chunks_df.pkl
+  type: DataFrame
+  columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label,
+    txt, node_id
+  n_rows: 3412
+  overwrite: false
+  id: 2
+  label: ChunksDatahandle
+  lab_name: injection_lab
+  class_parts:
+  - Datahandle
+  - ChunksDatahandle
+  module_path: labtools.datahandle
+  remarks: 'emb = po_emb, excluded rows with p="Wissenschaftlicher Name" '
+  drop_emb_duplicates: false
+  emb_dh:
+    id: 2
+    label: EmbeddingDatahandle
+    lab_name: injection_lab
+    class_parts:
+    - Datahandle
+    - EmbeddingDatahandle
+    module_path: labtools.datahandle
+    emb_templates:
+      s: '{s}'
+      p: '{p}'
+      o: '{o}'
+      spo: '{s}
+
+
+        {p}
+
+
+        {o}'
+      po: '{p}
+
+
+        {o}'
+      so: '{s}
+
+
+        {o}'
+    base_dh:
+      id: 1
+      label: wildbienen_database
+      lab_name: injection_lab
+      class_parts:
+      - Datahandle
+      - BaseDatahandle
+      module_path: labtools.datahandle
+    emb_pipe_config:
+      id: 1
+      label: NVEmbedPipeline
+      lab_name: injection_lab
+      class_parts:
+      - EMBPipeline
+      - NVEmbedPipeline
+      module_path: beesup_llm.emb
+      name_or_path: nvidia/NV-Embed-v2
+      instruction: 'Instruct: Given a passage, retrieve a suitable header
+
+
+
+        Passage:
+
+
+        '
+  data_df:
+    filename: data_df.pkl
+    type: DataFrame
+    columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label
+    n_rows: 3412
+    overwrite: false
+linkage_matrix:
+  filename: linkage_matrix.pkl
+  type: ndarray
+  shape: (3411, 4)
+  dtype: float64
+bin_tree:
+  filename: bin_tree.pkl
+  type: Node
+  size: 6823
+  height: 121
+dist_tree:
+  filename: dist_tree.pkl
+  type: Node
+  size: 3440
+  height: 7
+ddist_tree:
+  filename: ddist_tree.pkl
+  type: Node
+  size: 3424
+  height: 3
+emb_tree:
+  filename: emb_tree.pkl
+  type: Node
+  size: 3424
+  height: 3
+llm_tree:
+  filename: llm_tree.pkl
+  type: NoneType
