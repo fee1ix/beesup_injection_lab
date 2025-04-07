@@ -1,6 +1,5 @@
 experiment_paths:
-- /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0005_InjectionExperiment
-- /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0006_InjectionExperiment
-- /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0007_InjectionExperiment
-- /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0008_InjectionExperiment
-- /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0009_InjectionExperiment
+- /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0010_InjectionExperiment
+- /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0011_InjectionExperiment
+- /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0012_InjectionExperiment
+- /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0013_InjectionExperiment

@@ -1,4 +1,4 @@
-id: 9
+id: 10
 label: InjectionExperiment
 lab_name: injection_lab
 class_parts:
@@ -7,7 +7,7 @@ class_parts:
 module_path: beesup_llm.injection.experiment
 do_eval_base_model_rag: false
 do_eval_lora_model_rag: true
-done: true
+done: false
 do_eval_base_model: false
 do_eval_lora_model: true
 do_train: true
@@ -22,7 +22,7 @@ lora_config:
   task_type: CAUSAL_L
 sft_config:
   num_train_epochs: 10
-  output_dir: /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0009_InjectionExperiment
+  output_dir: /home/fboehning/fboehning/injection_lab/FinetuningExperiment/InjectionExperiment/0010_InjectionExperiment
   auto_find_batch_size: true
   per_device_train_batch_size: 8
   gradient_accumulation_steps: 1
@@ -100,118 +100,100 @@ evaluators:
     columns: sidx, kidx, tidx, add_kidc, emb_col, question, answer, question_emb
     n_rows: 5
     overwrite: false
-toc: " Wildbienen\n\u251C\u2500\u2500  Baumaterialien und Requisiten\n\u251C\u2500\
-  \u2500  Schutzma\xDFnahmen und Gef\xE4hrdungsfaktoren f\xFCr Wildbienen\n\u2502\
-  \   \u251C\u2500\u2500  Schutzma\xDFnahmen f\xFCr gef\xE4hrdete Wildbienenarten\n\
-  \u2502   \u2502   \u251C\u2500\u2500  Schutzma\xDFnahmen f\xFCr die Geh\xF6rnte\
-  \ Mauerbiene\n\u2502   \u2502   \u2514\u2500\u2500  Schutzma\xDFnahmen f\xFCr Wildbienenarten\
-  \ mit spezifischen Nahrungs- und Nestbaupflichten\n\u2502   \u2514\u2500\u2500 \
-  \ Gef\xE4hrdungskategorien und Schutzma\xDFnahmen f\xFCr gef\xE4hrdete Wildbienenarten\n\
-  \u2502       \u251C\u2500\u2500  Akut gef\xE4hrdete Wildbienenarten\n\u2502    \
-  \   \u2514\u2500\u2500  Gef\xE4hrdungskategorien und Schutzma\xDFnahmen f\xFCr gef\xE4\
-  hrdete Wildbienenarten in Deutschland\n\u2514\u2500\u2500  Bienen in Kultur und\
-  \ Gesellschaft\n    \u251C\u2500\u2500  Nistformen und Nistm\xF6glichkeiten von\
-  \ Wildbienen\n    \u251C\u2500\u2500  Entdeckungsgeschichte und rechtliche Aspekte\
-  \ der Efeu-Seidenbiene\n    \u2502   \u251C\u2500\u2500  Lebensraum und \xD6kologie\
-  \ der Cullumanushummel\n    \u2502   \u2502   \u251C\u2500\u2500  Lebensraum und\
-  \ \xD6kologie der Cullumanushummel\n    \u2502   \u2502   \u2502   \u251C\u2500\u2500\
-  \  Ph\xE4nologie der Cullumanushummel\n    \u2502   \u2502   \u2502   \u2514\u2500\
-  \u2500  Lebensraum und \xD6kologie der Cullumanushummel\n    \u2502   \u2502   \u2502\
-  \       \u251C\u2500\u2500  Lebensraum und Lebensweise der Cullumanushummel\n  \
-  \  \u2502   \u2502   \u2502       \u251C\u2500\u2500  Lebensraum und Nahrungsauswahl\
-  \ der Cullumanushummel\n    \u2502   \u2502   \u2502       \u251C\u2500\u2500  Fortpflanzungsbiologie\
-  \ der Cullumanushummel\n    \u2502   \u2502   \u2502       \u2514\u2500\u2500  Lebensraum\
-  \ und Verbreitung der Cullumanushummel\n    \u2502   \u2502   \u2514\u2500\u2500\
-  \  Lebensraum und Habitatbedingungen der Systrophiden\n    \u2502   \u2502     \
-  \  \u251C\u2500\u2500  Habitatbedingungen und Lebensraumverbreitung der Systrophiden\n\
-  \    \u2502   \u2502       \u2502   \u251C\u2500\u2500  Habitatbedingungen und Lebensraumverbreitung\
-  \ der Systrophiden in Mitteleuropa\n    \u2502   \u2502       \u2502   \u2514\u2500\
-  \u2500  Habitatbreite und -vielfalt der Systrophiden\n    \u2502   \u2502      \
-  \ \u2514\u2500\u2500  Wildbienen in Steppen- und W\xFCstengebieten\n    \u2502 \
-  \  \u2502           \u251C\u2500\u2500  Wildbienen in extremen Lebensr\xE4umen:\
-  \ Steppen- und W\xFCstengebiete\n    \u2502   \u2502           \u251C\u2500\u2500\
-  \  Verbreitung und Vorkommen der A. anthrisci in Europa\n    \u2502   \u2502   \
-  \        \u2514\u2500\u2500  Verbreitung und Vorkommen von Wildbienen in Mitteleuropa\n\
-  \    \u2502   \u2502               \u251C\u2500\u2500  Verbreitung und Vorkommen\
-  \ von Systrophiden in Mitteleuropa\n    \u2502   \u2502               \u2514\u2500\
-  \u2500  Verbreitung und Vorkommen von Wildbienen in Mitteleuropa mit besonderer\
-  \ Ber\xFCcksichtigung gef\xE4hrdeter Arten\n    \u2502   \u251C\u2500\u2500  Entdeckungsgeschichte\
-  \ der Efeu-Seidenbiene\n    \u2502   \u2502   \u251C\u2500\u2500  Die Entdeckungsgeschichte\
-  \ der Efeu-Seidenbiene: Historische Hintergr\xFCnde und fr\xFChe Anzeichen\n   \
-  \ \u2502   \u2502   \u2514\u2500\u2500  Taxonomische Geschichte der Efeu-Seidenbiene\n\
-  \    \u2502   \u2502       \u251C\u2500\u2500  Taxonomische Geschichte der Efeu-Seidenbiene:\
-  \ Erstbeschreibung und Nomenklatur\n    \u2502   \u2502       \u2514\u2500\u2500\
-  \  Taxonomische Geschichte der Efeu-Seidenbiene: Historische Forschungsbeitr\xE4\
-  ge\n    \u2502   \u2514\u2500\u2500  Rechtliche Aspekte der Bienenhaltung\n    \u2502\
-  \       \u251C\u2500\u2500  Merkmale und Beschreibungen von Wildbienenarten\n  \
-  \  \u2502       \u2502   \u251C\u2500\u2500  Beschreibungen von Wildbienenarten\
-  \ nach Merkmalen\n    \u2502       \u2502   \u2514\u2500\u2500  Merkmale und Beschreibungen\
-  \ von Wildbienenarten: K\xF6rperbau und -farbe\n    \u2502       \u251C\u2500\u2500\
-  \  Schlafgewohnheiten und Ruheverhalten der Bienen\n    \u2502       \u2502   \u251C\
-  \u2500\u2500  Schlafgewohnheiten und Ruheverhalten der Bienen: Wetterabh\xE4ngige\
-  \ und aktive Ruhepositionen\n    \u2502       \u2502   \u251C\u2500\u2500  Ruheverhalten\
-  \ der Bienen bei Schlaf und St\xF6rung\n    \u2502       \u2502   \u2502   \u251C\
-  \u2500\u2500  Ruheverhalten der Bienen bei Schlaf und St\xF6rung > Schlaf und Wachzustand\
-  \ der Bienen\n    \u2502       \u2502   \u2502   \u2514\u2500\u2500  Ruheverhalten\
-  \ der Bienen bei Schlaf und St\xF6rung > Orientierung und Verteidigungsmuster der\
-  \ Bienen\n    \u2502       \u2502   \u2514\u2500\u2500  Nestbau und -struktur\n\
-  \    \u2502       \u2502       \u251C\u2500\u2500  Nestbau und -struktur: Wabenbau\
-  \ und -beschichtung\n    \u2502       \u2502       \u2514\u2500\u2500  Nestbau und\
-  \ -struktur: Nistorte und Baumaterialien der Efeu-Seidenbiene\n    \u2502      \
-  \ \u251C\u2500\u2500  Rechtliche und wissenschaftliche Aspekte der Bienenhaltung\n\
-  \    \u2502       \u2514\u2500\u2500  Verteilung und Genetik der Westlichen Honigbiene\n\
-  \    \u2502           \u251C\u2500\u2500  Verteilung und Ausbreitung der Erdhummel\n\
-  \    \u2502           \u251C\u2500\u2500  Biotechnologische Anwendungen und Landwirtschaftliche\
-  \ Nutzung von Wildbienen\n    \u2502           \u2502   \u251C\u2500\u2500  Biotechnologische\
-  \ Anwendungen und Landwirtschaftliche Nutzung von Wildbienen: Mauerbienen als Best\xE4\
-  uber im Obstanbau\n    \u2502           \u2502   \u2514\u2500\u2500  Die Rolle der\
-  \ Honigbiene in der Best\xE4ubungsleistung und ihre Beziehungen zu anderen Wildbest\xE4\
-  ubern.\n    \u2502           \u2514\u2500\u2500  Genom und Genetik der Westlichen\
-  \ Honigbiene\n    \u251C\u2500\u2500  Etymologie der Wildbienen\n    \u251C\u2500\
-  \u2500  Bienen in der Heraldik und Symbolik\n    \u251C\u2500\u2500  Systematik\
-  \ und Taxonomie der Sandbienen\n    \u2502   \u251C\u2500\u2500  Umgangssprachliche\
-  \ Bezeichnungen der Sandbienen\n    \u2502   \u251C\u2500\u2500  Parasitismus bei\
-  \ Sandbienen und verwandten Bienen\n    \u2502   \u2502   \u251C\u2500\u2500  Wirte\
-  \ der Sandbienen-Blutbienen\n    \u2502   \u2502   \u2514\u2500\u2500  Brutparasiten\
-  \ der Sandbienen und verwandten Bienen\n    \u2502   \u251C\u2500\u2500  Systematik\
-  \ und Artabgrenzung der Sandbienen\n    \u2502   \u2502   \u251C\u2500\u2500  \xC4\
-  hnliche Arten und Abgrenzung der Sandbienen\n    \u2502   \u2502   \u2514\u2500\u2500\
-  \  Taxonomische Aspekte der Sandbienen\n    \u2502   \u2502       \u251C\u2500\u2500\
-  \  Taxonomische Probleme und Nomenklatur der Sandbienen\n    \u2502   \u2502   \
-  \    \u251C\u2500\u2500  Taxonomische Aspekte der Unterarten der Sandbienen\n  \
-  \  \u2502   \u2502       \u251C\u2500\u2500  Taxonomische Aspekte der Sandbienen:\
-  \ Artengruppen und Unterarten\n    \u2502   \u2502       \u251C\u2500\u2500  Taxonomische\
-  \ Beschreibungen der Sandbienen\n    \u2502   \u2502       \u251C\u2500\u2500  Taxonomische\
-  \ Aspekte der Sandbienen: Artnamen und Unterarten\n    \u2502   \u2502       \u251C\
-  \u2500\u2500  Nomenklatorische Aspekte der Sandbienen\n    \u2502   \u2502     \
-  \  \u2514\u2500\u2500  Taxonomische Aspekte der Sandbienen: Beschreibung und Klassifikation\n\
-  \    \u2502   \u251C\u2500\u2500  Schutz und Lebensweise der Sandbienen\n    \u2502\
-  \   \u2514\u2500\u2500  Gattungen der Kuckuckswespen (Chrysididae)\n    \u2514\u2500\
-  \u2500  Nahrung und Pollensammelverhalten\n        \u251C\u2500\u2500  Sozialverhalten:\
-  \ Arten und Formen\n        \u2514\u2500\u2500  Nahrung und Haupttrachtpflanzen\n\
-  \            \u251C\u2500\u2500  Haupttrachtpflanzen und Nahrungsmuster\n      \
-  \      \u2514\u2500\u2500  Pollensammelverhalten: Vielfalt der Haupttrachtpflanzen\n"
-timestamp_start: 2025-04-01_09-42-08
+toc: " Wildbienen\n\u251C\u2500\u2500  Nistformen und Nistplatzwahl\n\u251C\u2500\u2500\
+  \  Baumaterialien und Requisiten der Efeu-Seidenbiene\n\u2502   \u251C\u2500\u2500\
+  \  Baumaterialien\n\u2502   \u2514\u2500\u2500  Requisiten: Fels- und Bodenmaterialien\n\
+  \u251C\u2500\u2500  Gef\xE4hrdung und Schutz von Wildbienen\n\u2502   \u251C\u2500\
+  \u2500  Nisthilfen und Nahrungsbeg\xFCnstigung f\xFCr Wildbienen\n\u2502   \u251C\
+  \u2500\u2500  Gef\xE4hrdung durch Landwirtschaft und Lebensraumverlust\n\u2502 \
+  \  \u251C\u2500\u2500  Gef\xE4hrdung und Schutz bestimmter Wildbienenarten\n\u2502\
+  \   \u2514\u2500\u2500  Ma\xDFnahmen zum Schutz und Erhalt von Wildbienen\n\u251C\
+  \u2500\u2500  Etymologie der Gattungs- und Artbezeichnungen\n\u2502   \u251C\u2500\
+  \u2500  Hinweise zum Namen: Etymologische Deutungen von Gattungs- und Artbezeichnungen\n\
+  \u2502   \u2514\u2500\u2500  Etymologische Begr\xFCndungen der Artbezeichnungen\n\
+  \u251C\u2500\u2500  Die Biene in der Heraldik und Symbolik\n\u251C\u2500\u2500 \
+  \ Honigbienen und ihre Krankheiten\n\u2502   \u251C\u2500\u2500  Synonyme und wissenschaftliche\
+  \ Bezeichnungen von Honigbienen\n\u2502   \u251C\u2500\u2500  Parasiten und Krankheiten\
+  \ der Honigbiene\n\u2502   \u2502   \u251C\u2500\u2500  Parasiten und Krankheiten\
+  \ der Honigbiene: Krankheiten und Sch\xE4dlinge\n\u2502   \u2502   \u2514\u2500\u2500\
+  \  Wirte der Blutbienen\n\u2502   \u251C\u2500\u2500  Kuckuckshummeln und ihre Brutparasitismusarten\n\
+  \u2502   \u2502   \u251C\u2500\u2500  Seltenere Hummelarten und ihre Schutzma\xDF\
+  nahmen\n\u2502   \u2502   \u251C\u2500\u2500  Norwegische Kuckuckshummel und ihre\
+  \ Beziehungen zu anderen Hummelarten\n\u2502   \u2502   \u2514\u2500\u2500  Brutparasitismusarten\
+  \ der Honigbienen\n\u2502   \u251C\u2500\u2500  Umgangssprachliche Bezeichnungen\
+  \ f\xFCr Honigbienen und ihre Arten\n\u2502   \u251C\u2500\u2500  Wildbienen: Nicht-Honigbienen\n\
+  \u2502   \u2502   \u251C\u2500\u2500  Maskenbienen und ihre Verwandten\n\u2502 \
+  \  \u2502   \u251C\u2500\u2500  Kuckuckswespen (Chrysididae)\n\u2502   \u2502  \
+  \ \u251C\u2500\u2500  Schmalbienen (Lasioglossum-Arten)\n\u2502   \u2502   \u251C\
+  \u2500\u2500  Solit\xE4re, nestbauende Wildbienen au\xDFerhalb der Honigbienen\n\
+  \u2502   \u2502   \u2514\u2500\u2500  Wildbienen des Jahres\n\u2502   \u251C\u2500\
+  \u2500  \xC4hnliche Arten und Artabgrenzung\n\u2502   \u2514\u2500\u2500  Systematik\
+  \ und Taxonomie der Honigbienen\n\u2502       \u251C\u2500\u2500  Taxonomie der\
+  \ Honigbienen\n\u2502       \u251C\u2500\u2500  Unterartendifferenzierung bei Megachile\
+  \ analis\n\u2502       \u251C\u2500\u2500  Taxonomische Besonderheiten innerhalb\
+  \ der Honigbiene-Gruppen\n\u2502       \u251C\u2500\u2500  Die Andrena-ovatula-Gruppe\
+  \ und verwandte Arten\n\u2502       \u251C\u2500\u2500  Nomenklaturregeln und historische\
+  \ Namensverwendungen bei Honigbienen\n\u2502       \u2514\u2500\u2500  Untersuchungen\
+  \ zu Synonymen und verwandten Arten\n\u251C\u2500\u2500  Nahrung und Pollensammelverhalten\n\
+  \u2502   \u251C\u2500\u2500  Sozialverhalten: Arten und Formen\n\u2502   \u251C\u2500\
+  \u2500  Hauptnahrungsquellen und Nahrungssuche\n\u2502   \u2514\u2500\u2500  Pollensammelverhalten:\
+  \ Spezialisierung und Vielfalt\n\u251C\u2500\u2500  Lebensraum und Lebensweise der\
+  \ Wildbienen\n\u2502   \u251C\u2500\u2500  Lebensraum und Lebensweise der Heidebiene\
+  \ (Bombus jonellus)\n\u2502   \u251C\u2500\u2500  Ph\xE4nologie und Generationenverhalten\n\
+  \u2502   \u251C\u2500\u2500  Sommer\xF6kologie und Lebensraum der Mohn-Mauerbiene\n\
+  \u2502   \u251C\u2500\u2500  \xD6kologische Beziehungen und Nahrungsperspektiven\
+  \ von Wildbienen\n\u2502   \u2502   \u251C\u2500\u2500  Wirtsbiologie und Nahrungsperspektiven\
+  \ von Wildbienen\n\u2502   \u2502   \u251C\u2500\u2500  Parasit\xE4re Lebensweisen\
+  \ von Wildbienen: Kuckuckswespen und Kuckuckshummeln\n\u2502   \u2502   \u251C\u2500\
+  \u2500  Verhaltensaspekte der Wildbienen: M\xE4nnchen und Weibchen\n\u2502   \u2502\
+  \   \u251C\u2500\u2500  Nahrungsaufnahme und Parasitenbeziehungen von Wildbienen\n\
+  \u2502   \u2502   \u2514\u2500\u2500  Lebensraum und Nistplatzwahl von Blattschneiderbienen\n\
+  \u2502   \u251C\u2500\u2500  Parasitische Wildbienen: Wirtsarten und Lebensweise\n\
+  \u2502   \u251C\u2500\u2500  Nistplatzwahl und Nestbau bei Wildbienen\n\u2502  \
+  \ \u251C\u2500\u2500  Verbreitung und Vorkommen der Wildbienen-Arten\n\u2502   \u251C\
+  \u2500\u2500  Verbreitung und Gef\xE4hrdungsstatus von Wildbienen\n\u2502   \u251C\
+  \u2500\u2500  Vorkommen und Verbreitung der Seidenbienen\n\u2502   \u251C\u2500\u2500\
+  \  Verbreitung und Lebensraum von Andrena-Arten\n\u2502   \u251C\u2500\u2500  Verbreitung\
+  \ und Lebensraum von Hylaeus confusus\n\u2502   \u251C\u2500\u2500  Verbreitungsbereiche\
+  \ boreomontaner Wildbienen-Arten\n\u2502   \u251C\u2500\u2500  Verbreitung und Lebensraum\
+  \ von Hylaeus rinki\n\u2502   \u251C\u2500\u2500  Habitatverhalten und Verbreitung\
+  \ der Wildbienen-Arten S. hyalinatus, S. ferruginatus, S. ephippius, S. crassus\
+  \ und S. gibbus\n\u2502   \u251C\u2500\u2500  Habitat und Verbreitung von Sand-\
+  \ und Bergbienen\n\u2502   \u2514\u2500\u2500  Nistpl\xE4tze und Nistverhalten der\
+  \ Wildbienen\n\u251C\u2500\u2500  Entdeckungsgeschichte der Efeu-Seidenbiene\n\u251C\
+  \u2500\u2500  Merkmale und Aussehen von Wildbienen-Arten\n\u2502   \u251C\u2500\u2500\
+  \  Besonderheiten der K\xF6rpergestaltung\n\u2502   \u251C\u2500\u2500  Kennzeichen\
+  \ und Aussehen von Wildbienen-Arten\n\u2502   \u251C\u2500\u2500  Gr\xF6\xDFe und\
+  \ K\xF6rperbau von Wildbienen-Arten\n\u2502   \u2514\u2500\u2500  Unterscheidungsmerkmale\
+  \ von Wildbienen-Arten\n\u251C\u2500\u2500  Schlafgewohnheiten und Ruheverhalten\n\
+  \u2502   \u251C\u2500\u2500  Schlaf- und Orientierungsmuster\n\u2502   \u251C\u2500\
+  \u2500  Nestbau und Neststruktur\n\u2502   \u2502   \u251C\u2500\u2500  Nestkonstruktion\
+  \ und -ausstattung\n\u2502   \u2502   \u2514\u2500\u2500  Nistorte und Baumaterialien\n\
+  \u2502   \u2514\u2500\u2500  Schlafgewohnheiten: Ruhepositionen und Schlafplatzwahl\n\
+  \u251C\u2500\u2500  Bienen im Recht und Wissenschaft\n\u2514\u2500\u2500  Einf\xFC\
+  hrung und Verbreitung von Wildbienen\n    \u251C\u2500\u2500  Verbreitung und Einf\xFC\
+  hrung von Erdhummeln\n    \u251C\u2500\u2500  Genom und Evolution der Westlichen\
+  \ Honigbiene\n    \u251C\u2500\u2500  Parasiten der Luzerne-Blattschneiderbiene:\
+  \ Regionalit\xE4t und Verbreitung\n    \u2514\u2500\u2500  Haltung und Pflege von\
+  \ Wildbienen\n"
+timestamp_start: 2025-04-07_10-32-17
 lora_info:
   n_trainable_params: 83886080
   n_total_params: 8114147328
   p_trainable_params: 0.010338249554642546
   lora_scale: 0.5303300858899106
-timestamp_train_start: 2025-04-01_09-44-06
-timestamp_train_done: 2025-04-05_07-42-01
-timestamp_done: 2025-04-05_07-42-01
 data_df:
   class_parts:
   - Datahandle
   - InjectionDatahandle
   module_path: labtools.datahandle
-  id: 6
+  id: 7
   label: InjectionDatahandle
   lab_name: injection_lab
   remarks: english system prompt, german query prompt
   use_taxonomy: true
   taxomizer:
-    id: 6
+    id: 50
     label: Taxomizer
     lab_name: injection_lab
     class_parts:
@@ -222,14 +204,17 @@ data_df:
     chunk_emb_key: emb
     linkage_args:
       method: average
+      optimal_ordering: false
     dist_flattening_config:
       include_leaves: false
-      use_kneepoint: true
-      use_std: false
+      use_kneepoint: false
+      use_std: true
+      std_factor: 2.5
     ddist_flattening_config:
       include_leaves: false
-      use_kneepoint: true
-      use_std: false
+      use_kneepoint: false
+      use_std: true
+      std_factor: 2.5
     tree_info:
       bin_tree:
         num_inodes: 3411
@@ -731,117 +716,120 @@ data_df:
         branching: 2.0
         avg_degree: 0.9999
         avg_balance: 14.4881
-      dist_threshold: 0.3255531545912865
+      dist_threshold: 0.2630495722258779
       dist_tree:
-        num_inodes: 120
+        num_inodes: 267
         num_leaves: 3412
         num_inodes_per_depth:
         - 2
-        - 2
-        - 4
+        - 3
+        - 5
         - 7
         - 8
         - 12
-        - 14
-        - 14
         - 17
-        - 12
+        - 20
+        - 20
+        - 23
+        - 24
+        - 27
+        - 19
+        - 15
+        - 11
+        - 10
         - 9
-        - 9
+        - 11
+        - 6
+        - 4
+        - 4
         - 3
         - 1
-        - 2
         - 1
+        - 2
         - 2
         - 0
         num_leaves_per_depth:
         - 0
-        - 129
-        - 0
-        - 1
+        - 65
+        - 6
+        - 59
         - 365
         - 201
-        - 38
-        - 369
-        - 21
-        - 373
-        - 617
-        - 454
-        - 517
-        - 116
-        - 0
-        - 28
-        - 0
-        - 183
-        height: 18
-        avg_depth: 10.1169
-        width: 626
-        dia: 28
-        branching: 29.6555
-        avg_degree: 0.9997
-        avg_balance: 0.0651
-      ddist_threshold: 0.05259171724319461
-      ddist_tree_raw:
-        num_inodes: 61
-        num_leaves: 3412
-        num_inodes_per_depth:
-        - 3
-        - 7
-        - 11
-        - 11
-        - 17
         - 10
-        - 1
+        - 357
+        - 38
+        - 26
+        - 125
+        - 545
+        - 916
+        - 36
+        - 59
+        - 43
+        - 22
+        - 12
+        - 271
+        - 51
+        - 12
+        - 19
+        - 64
+        - 6
         - 0
-        num_leaves_per_depth:
-        - 0
-        - 489
-        - 722
-        - 1120
-        - 379
-        - 398
-        - 295
-        - 9
-        height: 8
-        avg_depth: 4.1146
-        width: 1131
-        dia: 12
-        branching: 57.8167
+        - 3
+        - 101
+        height: 27
+        avg_depth: 11.8943
+        width: 935
+        dia: 46
+        branching: 13.8195
         avg_degree: 0.9997
-        avg_balance: 0.0124
-      ddist_tree_rec:
-        num_inodes: 78
+        avg_balance: 0.2218
+      ddist_threshold: 0.06843617029903651
+      ddist_tree_raw:
+        num_inodes: 66
         num_leaves: 3412
         num_inodes_per_depth:
-        - 3
-        - 8
-        - 14
-        - 14
-        - 21
-        - 15
-        - 2
+        - 12
+        - 36
+        - 17
+        - 0
+        num_leaves_per_depth:
+        - 360
+        - 320
+        - 2243
+        - 489
+        height: 4
+        avg_depth: 2.8235
+        width: 2260
+        dia: 8
+        branching: 47.7692
+        avg_degree: 0.9997
+        avg_balance: 0.006
+      ddist_tree_rec:
+        num_inodes: 82
+        num_leaves: 3412
+        num_inodes_per_depth:
+        - 13
+        - 45
+        - 23
         - 0
         num_leaves_per_depth:
         - 0
-        - 129
-        - 371
-        - 1810
-        - 392
-        - 291
-        - 294
-        - 125
-        height: 8
-        avg_depth: 4.4989
-        width: 1824
-        dia: 12
-        branching: 45.2727
+        - 368
+        - 1761
+        - 1283
+        height: 4
+        avg_depth: 3.2407
+        width: 1784
+        dia: 8
+        branching: 42.963
         avg_degree: 0.9997
-        avg_balance: 0.0074
+        avg_balance: 0.0014
     chunks_df:
       filename: chunks_df.pkl
       type: DataFrame
-      columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb,
-        label, txt, n_tokens
+      columns: tidx, kidx, spo, s, p, o, source_name, attr_type, n_units, n_words,
+        emb, label, txt, n_tokens, node_id, toc, toc_until, hpath, prompt_messages,
+        gold_message
       n_rows: 3412
       overwrite: false
       id: 2
@@ -959,23 +947,23 @@ data_df:
     dist_tree:
       filename: dist_tree.pkl
       type: Node
-      size: 3532
-      height: 18
+      size: 3679
+      height: 27
     ddist_tree:
       filename: ddist_tree.pkl
       type: Node
-      size: 3490
-      height: 8
+      size: 3494
+      height: 4
     emb_tree:
       filename: emb_tree.pkl
       type: Node
-      size: 3490
-      height: 8
+      size: 3494
+      height: 4
     llm_tree:
       filename: llm_tree.pkl
       type: Node
-      size: 3490
-      height: 8
+      size: 3494
+      height: 4
   data_df:
     filename: data_df.pkl
     type: DataFrame
