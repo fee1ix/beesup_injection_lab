@@ -352,11 +352,36 @@ tree_info:
     branching: 149.2174
     avg_degree: 0.9997
     avg_balance: 0.0029
+  toc: " Wildbienen\n\u251C\u2500\u2500  Gef\xE4hrdete Wildbienenarten\n\u2502   \u251C\
+    \u2500\u2500  Umgangssprachliche Bezeichnungen gef\xE4hrdeter Wildbienenarten\n\
+    \u2502   \u2514\u2500\u2500  Gef\xE4hrdete Wildbienenarten mit besonderen Wirtsbienen\
+    \ und Kuckuckswespen\n\u2502       \u251C\u2500\u2500  Familien der Wildbienen\n\
+    \u2502       \u2514\u2500\u2500  Gef\xE4hrdete Wildbienenarten mit besonderen\
+    \ Wirtsbienen und Kuckuckswespen aus bestimmten Familien\n\u2502           \u251C\
+    \u2500\u2500  Gef\xE4hrdung von Wildbienenarten mit bestimmten Lebensraumtypen\
+    \ und Pflanzen als Pollenlieferanten\n\u2502           \u2514\u2500\u2500  Wirtsbienen\
+    \ und Wirte der gef\xE4hrdeten Wildbienenarten mit besonderen Kuckuckswespen\n\
+    \u2502               \u251C\u2500\u2500  Kuckuckswespen der gef\xE4hrdeten Wildbienenarten\n\
+    \u2502               \u251C\u2500\u2500  Wirtsbienen der gef\xE4hrdeten Wildbienenarten\
+    \ mit besonderen Kuckuckswespen\n\u2502               \u2514\u2500\u2500  Wirtsbienen\
+    \ und Wirte der gef\xE4hrdeten Wildbienenarten mit besonderen Kuckuckswespen aus\
+    \ bestimmten Familien: Furchenbienen und Sandbienen\n\u251C\u2500\u2500  Merkmale\
+    \ und Lebensweise von S. ephippius\n\u2502   \u251C\u2500\u2500  Morphologische\
+    \ Merkmale von S. ephippius\n\u2502   \u2514\u2500\u2500  Pollenquellen und Lebensraum\
+    \ von S. ephippius\n\u2502       \u251C\u2500\u2500  Pollenquellen und Nahrungspr\xE4\
+    ferenzen von S. ephippius\n\u2502       \u251C\u2500\u2500  Vorkommen und Lebensweise\
+    \ in Europa\n\u2502       \u2514\u2500\u2500  Habitatverbreitung von Wildbienen-Arten\n\
+    \u2514\u2500\u2500  Nist- und Bauverhalten\n    \u251C\u2500\u2500  Nistpl\xE4\
+    tze: Hohlr\xE4ume und Insektenfra\xDFg\xE4nge\n    \u251C\u2500\u2500  Pollensammelverhalten:\
+    \ Artenvielfalt und Pr\xE4ferenzen\n    \u251C\u2500\u2500  Sozialverhalten\n\
+    \    \u2514\u2500\u2500  Baumaterialien und Requisiten f\xFCr die Nestherstellung\n\
+    \        \u251C\u2500\u2500  Baumaterialien f\xFCr die Nestherstellung\n     \
+    \   \u2514\u2500\u2500  Requisiten: Fels- und Steinelemente\n"
 chunks_df:
   filename: chunks_df.pkl
   type: DataFrame
   columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label,
-    txt, n_tokens, node_id
+    txt, n_tokens
   n_rows: 3412
   overwrite: false
   id: 2
@@ -421,10 +446,10 @@ chunks_df:
 
         '
   data_df:
-    type: DataFrame
     filename: data_df.pkl
-    n_rows: 3412
+    type: DataFrame
     columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label
+    n_rows: 3412
     overwrite: false
 llm_pipe:
   class_parts:
@@ -487,4 +512,6 @@ emb_tree:
   height: 6
 llm_tree:
   filename: llm_tree.pkl
-  type: NoneType
+  type: Node
+  size: 3436
+  height: 6

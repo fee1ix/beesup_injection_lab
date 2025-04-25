@@ -709,11 +709,14 @@ tree_info:
     branching: 5.7612
     avg_degree: 0.9998
     avg_balance: 0.0775
+llm_tree:
+  filename: llm_tree.pkl
+  type: dict
 chunks_df:
   filename: chunks_df.pkl
   type: DataFrame
   columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label,
-    txt, node_id
+    txt
   n_rows: 3412
   overwrite: false
   id: 2
@@ -808,6 +811,3 @@ emb_tree:
   type: Node
   size: 4129
   height: 13
-llm_tree:
-  filename: llm_tree.pkl
-  type: NoneType

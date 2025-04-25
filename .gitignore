@@ -4,3 +4,6 @@ checkpoint-[0-9]*/
 *.log
 *.html
 events.out.tfevents*
+wandb/
+injection_experiments/
+datasets/

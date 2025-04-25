@@ -624,11 +624,104 @@ tree_info:
     branching: 45.2727
     avg_degree: 0.9997
     avg_balance: 0.0074
+  toc: " Wildbienen\n\u251C\u2500\u2500  Baumaterialien und Requisiten\n\u251C\u2500\
+    \u2500  Schutzma\xDFnahmen und Gef\xE4hrdungsfaktoren f\xFCr Wildbienen\n\u2502\
+    \   \u251C\u2500\u2500  Schutzma\xDFnahmen f\xFCr gef\xE4hrdete Wildbienenarten\n\
+    \u2502   \u2502   \u251C\u2500\u2500  Schutzma\xDFnahmen f\xFCr die Geh\xF6rnte\
+    \ Mauerbiene\n\u2502   \u2502   \u2514\u2500\u2500  Schutzma\xDFnahmen f\xFCr\
+    \ Wildbienenarten mit spezifischen Nahrungs- und Nestbaupflichten\n\u2502   \u2514\
+    \u2500\u2500  Gef\xE4hrdungskategorien und Schutzma\xDFnahmen f\xFCr gef\xE4hrdete\
+    \ Wildbienenarten\n\u2502       \u251C\u2500\u2500  Akut gef\xE4hrdete Wildbienenarten\n\
+    \u2502       \u2514\u2500\u2500  Gef\xE4hrdungskategorien und Schutzma\xDFnahmen\
+    \ f\xFCr gef\xE4hrdete Wildbienenarten in Deutschland\n\u2514\u2500\u2500  Bienen\
+    \ in Kultur und Gesellschaft\n    \u251C\u2500\u2500  Nistformen und Nistm\xF6\
+    glichkeiten von Wildbienen\n    \u251C\u2500\u2500  Entdeckungsgeschichte und\
+    \ rechtliche Aspekte der Efeu-Seidenbiene\n    \u2502   \u251C\u2500\u2500  Lebensraum\
+    \ und \xD6kologie der Cullumanushummel\n    \u2502   \u2502   \u251C\u2500\u2500\
+    \  Lebensraum und \xD6kologie der Cullumanushummel\n    \u2502   \u2502   \u2502\
+    \   \u251C\u2500\u2500  Ph\xE4nologie der Cullumanushummel\n    \u2502   \u2502\
+    \   \u2502   \u2514\u2500\u2500  Lebensraum und \xD6kologie der Cullumanushummel\n\
+    \    \u2502   \u2502   \u2502       \u251C\u2500\u2500  Lebensraum und Lebensweise\
+    \ der Cullumanushummel\n    \u2502   \u2502   \u2502       \u251C\u2500\u2500\
+    \  Lebensraum und Nahrungsauswahl der Cullumanushummel\n    \u2502   \u2502  \
+    \ \u2502       \u251C\u2500\u2500  Fortpflanzungsbiologie der Cullumanushummel\n\
+    \    \u2502   \u2502   \u2502       \u2514\u2500\u2500  Lebensraum und Verbreitung\
+    \ der Cullumanushummel\n    \u2502   \u2502   \u2514\u2500\u2500  Lebensraum und\
+    \ Habitatbedingungen der Systrophiden\n    \u2502   \u2502       \u251C\u2500\u2500\
+    \  Habitatbedingungen und Lebensraumverbreitung der Systrophiden\n    \u2502 \
+    \  \u2502       \u2502   \u251C\u2500\u2500  Habitatbedingungen und Lebensraumverbreitung\
+    \ der Systrophiden in Mitteleuropa\n    \u2502   \u2502       \u2502   \u2514\u2500\
+    \u2500  Habitatbreite und -vielfalt der Systrophiden\n    \u2502   \u2502    \
+    \   \u2514\u2500\u2500  Wildbienen in Steppen- und W\xFCstengebieten\n    \u2502\
+    \   \u2502           \u251C\u2500\u2500  Wildbienen in extremen Lebensr\xE4umen:\
+    \ Steppen- und W\xFCstengebiete\n    \u2502   \u2502           \u251C\u2500\u2500\
+    \  Verbreitung und Vorkommen der A. anthrisci in Europa\n    \u2502   \u2502 \
+    \          \u2514\u2500\u2500  Verbreitung und Vorkommen von Wildbienen in Mitteleuropa\n\
+    \    \u2502   \u2502               \u251C\u2500\u2500  Verbreitung und Vorkommen\
+    \ von Systrophiden in Mitteleuropa\n    \u2502   \u2502               \u2514\u2500\
+    \u2500  Verbreitung und Vorkommen von Wildbienen in Mitteleuropa mit besonderer\
+    \ Ber\xFCcksichtigung gef\xE4hrdeter Arten\n    \u2502   \u251C\u2500\u2500  Entdeckungsgeschichte\
+    \ der Efeu-Seidenbiene\n    \u2502   \u2502   \u251C\u2500\u2500  Die Entdeckungsgeschichte\
+    \ der Efeu-Seidenbiene: Historische Hintergr\xFCnde und fr\xFChe Anzeichen\n \
+    \   \u2502   \u2502   \u2514\u2500\u2500  Taxonomische Geschichte der Efeu-Seidenbiene\n\
+    \    \u2502   \u2502       \u251C\u2500\u2500  Taxonomische Geschichte der Efeu-Seidenbiene:\
+    \ Erstbeschreibung und Nomenklatur\n    \u2502   \u2502       \u2514\u2500\u2500\
+    \  Taxonomische Geschichte der Efeu-Seidenbiene: Historische Forschungsbeitr\xE4\
+    ge\n    \u2502   \u2514\u2500\u2500  Rechtliche Aspekte der Bienenhaltung\n  \
+    \  \u2502       \u251C\u2500\u2500  Merkmale und Beschreibungen von Wildbienenarten\n\
+    \    \u2502       \u2502   \u251C\u2500\u2500  Beschreibungen von Wildbienenarten\
+    \ nach Merkmalen\n    \u2502       \u2502   \u2514\u2500\u2500  Merkmale und Beschreibungen\
+    \ von Wildbienenarten: K\xF6rperbau und -farbe\n    \u2502       \u251C\u2500\u2500\
+    \  Schlafgewohnheiten und Ruheverhalten der Bienen\n    \u2502       \u2502  \
+    \ \u251C\u2500\u2500  Schlafgewohnheiten und Ruheverhalten der Bienen: Wetterabh\xE4\
+    ngige und aktive Ruhepositionen\n    \u2502       \u2502   \u251C\u2500\u2500\
+    \  Ruheverhalten der Bienen bei Schlaf und St\xF6rung\n    \u2502       \u2502\
+    \   \u2502   \u251C\u2500\u2500  Ruheverhalten der Bienen bei Schlaf und St\xF6\
+    rung > Schlaf und Wachzustand der Bienen\n    \u2502       \u2502   \u2502   \u2514\
+    \u2500\u2500  Ruheverhalten der Bienen bei Schlaf und St\xF6rung > Orientierung\
+    \ und Verteidigungsmuster der Bienen\n    \u2502       \u2502   \u2514\u2500\u2500\
+    \  Nestbau und -struktur\n    \u2502       \u2502       \u251C\u2500\u2500  Nestbau\
+    \ und -struktur: Wabenbau und -beschichtung\n    \u2502       \u2502       \u2514\
+    \u2500\u2500  Nestbau und -struktur: Nistorte und Baumaterialien der Efeu-Seidenbiene\n\
+    \    \u2502       \u251C\u2500\u2500  Rechtliche und wissenschaftliche Aspekte\
+    \ der Bienenhaltung\n    \u2502       \u2514\u2500\u2500  Verteilung und Genetik\
+    \ der Westlichen Honigbiene\n    \u2502           \u251C\u2500\u2500  Verteilung\
+    \ und Ausbreitung der Erdhummel\n    \u2502           \u251C\u2500\u2500  Biotechnologische\
+    \ Anwendungen und Landwirtschaftliche Nutzung von Wildbienen\n    \u2502     \
+    \      \u2502   \u251C\u2500\u2500  Biotechnologische Anwendungen und Landwirtschaftliche\
+    \ Nutzung von Wildbienen: Mauerbienen als Best\xE4uber im Obstanbau\n    \u2502\
+    \           \u2502   \u2514\u2500\u2500  Die Rolle der Honigbiene in der Best\xE4\
+    ubungsleistung und ihre Beziehungen zu anderen Wildbest\xE4ubern.\n    \u2502\
+    \           \u2514\u2500\u2500  Genom und Genetik der Westlichen Honigbiene\n\
+    \    \u251C\u2500\u2500  Etymologie der Wildbienen\n    \u251C\u2500\u2500  Bienen\
+    \ in der Heraldik und Symbolik\n    \u251C\u2500\u2500  Systematik und Taxonomie\
+    \ der Sandbienen\n    \u2502   \u251C\u2500\u2500  Umgangssprachliche Bezeichnungen\
+    \ der Sandbienen\n    \u2502   \u251C\u2500\u2500  Parasitismus bei Sandbienen\
+    \ und verwandten Bienen\n    \u2502   \u2502   \u251C\u2500\u2500  Wirte der Sandbienen-Blutbienen\n\
+    \    \u2502   \u2502   \u2514\u2500\u2500  Brutparasiten der Sandbienen und verwandten\
+    \ Bienen\n    \u2502   \u251C\u2500\u2500  Systematik und Artabgrenzung der Sandbienen\n\
+    \    \u2502   \u2502   \u251C\u2500\u2500  \xC4hnliche Arten und Abgrenzung der\
+    \ Sandbienen\n    \u2502   \u2502   \u2514\u2500\u2500  Taxonomische Aspekte der\
+    \ Sandbienen\n    \u2502   \u2502       \u251C\u2500\u2500  Taxonomische Probleme\
+    \ und Nomenklatur der Sandbienen\n    \u2502   \u2502       \u251C\u2500\u2500\
+    \  Taxonomische Aspekte der Unterarten der Sandbienen\n    \u2502   \u2502   \
+    \    \u251C\u2500\u2500  Taxonomische Aspekte der Sandbienen: Artengruppen und\
+    \ Unterarten\n    \u2502   \u2502       \u251C\u2500\u2500  Taxonomische Beschreibungen\
+    \ der Sandbienen\n    \u2502   \u2502       \u251C\u2500\u2500  Taxonomische Aspekte\
+    \ der Sandbienen: Artnamen und Unterarten\n    \u2502   \u2502       \u251C\u2500\
+    \u2500  Nomenklatorische Aspekte der Sandbienen\n    \u2502   \u2502       \u2514\
+    \u2500\u2500  Taxonomische Aspekte der Sandbienen: Beschreibung und Klassifikation\n\
+    \    \u2502   \u251C\u2500\u2500  Schutz und Lebensweise der Sandbienen\n    \u2502\
+    \   \u2514\u2500\u2500  Gattungen der Kuckuckswespen (Chrysididae)\n    \u2514\
+    \u2500\u2500  Nahrung und Pollensammelverhalten\n        \u251C\u2500\u2500  Sozialverhalten:\
+    \ Arten und Formen\n        \u2514\u2500\u2500  Nahrung und Haupttrachtpflanzen\n\
+    \            \u251C\u2500\u2500  Haupttrachtpflanzen und Nahrungsmuster\n    \
+    \        \u2514\u2500\u2500  Pollensammelverhalten: Vielfalt der Haupttrachtpflanzen\n"
 chunks_df:
   filename: chunks_df.pkl
   type: DataFrame
   columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label,
-    txt, n_tokens, node_id
+    txt, n_tokens
   n_rows: 3412
   overwrite: false
   id: 2
@@ -693,10 +786,10 @@ chunks_df:
 
         '
   data_df:
-    type: DataFrame
     filename: data_df.pkl
-    n_rows: 3412
+    type: DataFrame
     columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label
+    n_rows: 3412
     overwrite: false
 llm_pipe:
   class_parts:
@@ -759,4 +852,6 @@ emb_tree:
   height: 8
 llm_tree:
   filename: llm_tree.pkl
-  type: NoneType
+  type: Node
+  size: 3490
+  height: 8

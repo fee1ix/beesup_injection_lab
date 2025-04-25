@@ -596,11 +596,56 @@ tree_info:
     branching: 78.5
     avg_degree: 0.9997
     avg_balance: 0.0006
+  toc: " Wildbienen\n\u251C\u2500\u2500  Lebensraum und Verhalten der Felsen-Kuckuckshummel\n\
+    \u2502   \u251C\u2500\u2500  Ph\xE4nologie und Parasitismus der Felsen-Kuckuckshummel\n\
+    \u2502   \u2502   \u251C\u2500\u2500  Flugzeit und Ph\xE4nologie der Felsen-Kuckuckshummel\n\
+    \u2502   \u2502   \u2514\u2500\u2500  Vorkommen und Lebensweise der Felsen-Kuckuckshummel\n\
+    \u2502   \u251C\u2500\u2500  Lebensraum und Habitat der Felsen-Kuckuckshummel\n\
+    \u2502   \u2502   \u251C\u2500\u2500  Habitat und Lebensraum der Felsen-Kuckuckshummel\
+    \ in verschiedenen H\xF6henstufen\n\u2502   \u2502   \u2514\u2500\u2500  Typische\
+    \ Lebensr\xE4ume und Nistpl\xE4tze der Felsen-Kuckuckshummel und verwandter Arten\n\
+    \u2502   \u251C\u2500\u2500  Systematik und Verbreitung der Felsen-Kuckuckshummel\n\
+    \u2502   \u2502   \u251C\u2500\u2500  Systematik und Verbreitung der Felsen-Kuckuckshummel\
+    \ (Hylaeus confusus)\n\u2502   \u2502   \u2514\u2500\u2500  Nat\xFCrliches Verbreitungsgebiet\
+    \ und Einf\xFChrung in Neuseeland\n\u2502   \u251C\u2500\u2500  Gef\xE4hrdung\
+    \ und Verbreitung der Felsen-Kuckuckshummel\n\u2502   \u2502   \u251C\u2500\u2500\
+    \  Gef\xE4hrdung und Verbreitung der Felsen-Kuckuckshummel in Europa\n\u2502 \
+    \  \u2502   \u2514\u2500\u2500  Verbreitung und Vorkommen der Felsen-Kuckuckshummel\n\
+    \u2502   \u251C\u2500\u2500  Gef\xE4hrdung und Schutz der Wildbienen\n\u2502 \
+    \  \u2502   \u251C\u2500\u2500  Schutzma\xDFnahmen f\xFCr nicht gef\xE4hrdete\
+    \ Wildbienenarten\n\u2502   \u2502   \u2514\u2500\u2500  Wildbienen - Gef\xE4\
+    hrdung und Schutz: Gef\xE4hrdete Arten\n\u2502   \u251C\u2500\u2500  Merkmale\
+    \ und Beschreibung der Felsen-Kuckuckshummel\n\u2502   \u2502   \u251C\u2500\u2500\
+    \  Merkmale und Gr\xF6\xDFen der Wildbienen-Arten\n\u2502   \u2502   \u2514\u2500\
+    \u2500  Morphologische Merkmale der Felsen-Kuckuckshummel\n\u2502   \u251C\u2500\
+    \u2500  Entomologische Beschreibungen von Wildbienen-Arten\n\u2502   \u2502  \
+    \ \u251C\u2500\u2500  Hummelarten\n\u2502   \u2502   \u251C\u2500\u2500  Entomologische\
+    \ Beschreibungen von Wildbienen-Arten: Taxonomische und Systematische Aspekte\n\
+    \u2502   \u2502   \u2514\u2500\u2500  Sandbienen-Arten der Gattung Andrena\n\u2502\
+    \   \u251C\u2500\u2500  Lebensraum und Nahrungsaufnahme\n\u2502   \u251C\u2500\
+    \u2500  Lebensweise und Parasiten der Kuckucksbienen\n\u2502   \u2502   \u251C\
+    \u2500\u2500  Parasiten der Kuckucksbienen\n\u2502   \u2502   \u2514\u2500\u2500\
+    \  Lebensweise und Eiablage von Kuckucksbienen\n\u2502   \u251C\u2500\u2500  Bienen\
+    \ in Gesellschaft und Kultur\n\u2502   \u2502   \u251C\u2500\u2500  Bienen und\
+    \ Recht, Genetik und Evolution\n\u2502   \u2502   \u251C\u2500\u2500  Bienen in\
+    \ der Kultur und Symbolik\n\u2502   \u2502   \u2514\u2500\u2500  Die landwirtschaftliche\
+    \ Nutzung der Mauerbiene\n\u2502   \u251C\u2500\u2500  Fortpflanzung und Lebenszyklus\
+    \ der Felsen-Kuckuckshummel\n\u2502   \u2514\u2500\u2500  Verhaltensweisen der\
+    \ Felsen-Kuckuckshummel\n\u2514\u2500\u2500  Taxonomie und Nomenklatur der Holzbienen\n\
+    \    \u251C\u2500\u2500  Umgangssprachliche Bezeichnungen der Holzbienen-Arten\n\
+    \    \u251C\u2500\u2500  Baumaterialien und Requisiten\n    \u2502   \u251C\u2500\
+    \u2500  Nistplatzmerkmale\n    \u2502   \u2514\u2500\u2500  Baumaterialien und\
+    \ Requisiten f\xFCr Nistpl\xE4tze\n    \u251C\u2500\u2500  Familien der Holzbienen\
+    \ und Kuckuckswespen\n    \u251C\u2500\u2500  \xC4hnliche Arten und Systematik\
+    \ der Holzbienen\n    \u2502   \u251C\u2500\u2500  \xC4hnliche Arten und Abgrenzung\
+    \ der Holzbienen\n    \u2502   \u251C\u2500\u2500  Nomenklatorische Unsicherheiten\
+    \ und Synonyme\n    \u2502   \u2514\u2500\u2500  Unterarten und Variationsformen\
+    \ der Holzbienen\n    \u2514\u2500\u2500  Etymologie der Holzbienen\n"
 chunks_df:
   filename: chunks_df.pkl
   type: DataFrame
   columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label,
-    txt, n_tokens, node_id
+    txt, n_tokens
   n_rows: 3412
   overwrite: false
   id: 2
@@ -665,10 +710,10 @@ chunks_df:
 
         '
   data_df:
-    type: DataFrame
     filename: data_df.pkl
-    n_rows: 3412
+    type: DataFrame
     columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label
+    n_rows: 3412
     overwrite: false
 llm_pipe:
   class_parts:
@@ -731,4 +776,6 @@ emb_tree:
   height: 4
 llm_tree:
   filename: llm_tree.pkl
-  type: NoneType
+  type: Node
+  size: 3457
+  height: 4

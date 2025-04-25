@@ -604,11 +604,45 @@ tree_info:
     branching: 95.4722
     avg_degree: 0.9997
     avg_balance: 0.0009
+  toc: " Wildbienen\n\u251C\u2500\u2500  Nistweisen und Sozialverhalten von Wildbienen\n\
+    \u251C\u2500\u2500  Taxonomie und Systematik der Sandbienen (Colletidae)\n\u2502\
+    \   \u251C\u2500\u2500  Erstbeschreibungen und Nomenklatur\n\u2502   \u251C\u2500\
+    \u2500  Kuckuckswespen (Chrysididae) in der Verwandtschaft der Sandbienen (Colletidae)\n\
+    \u2502   \u2502   \u251C\u2500\u2500  Familien\xFCbereinstimmungen von Kuckuckswespen\n\
+    \u2502   \u2502   \u2514\u2500\u2500  Gattungen der Kuckuckswespen (Chrysididae)\n\
+    \u2502   \u2514\u2500\u2500  Systematik und Artabgrenzung innerhalb der Sandbienen\
+    \ (Colletidae)\n\u2502       \u251C\u2500\u2500  Taxonomische Merkmale und Artengruppen\
+    \ innerhalb der Sandbienen (Colletidae)\n\u2502       \u2514\u2500\u2500  Artabgrenzung\
+    \ innerhalb der Sandbienen (Colletidae)\n\u251C\u2500\u2500  Gef\xE4hrdung und\
+    \ Schutz von Wildbienen\n\u2502   \u251C\u2500\u2500  Schutzma\xDFnahmen f\xFC\
+    r gef\xE4hrdete Wildbienenarten\n\u2502   \u2514\u2500\u2500  Gef\xE4hrdung: Bedrohte\
+    \ Wildbienenarten\n\u251C\u2500\u2500  Lebensraum und Verbreitung von Wildbienen\n\
+    \u2502   \u251C\u2500\u2500  Verbreitung und Lebensraum von Wildbienen-Arten in\
+    \ Europa\n\u2502   \u251C\u2500\u2500  Habitatbedingungen und Verbreitungsbegrenzungen\
+    \ von Wildbienen\n\u2502   \u2514\u2500\u2500  H\xF6henstufen und Gebirgsmagerrasen\
+    \ als Lebensraum der Alpen-Andrena\n\u251C\u2500\u2500  Merkmale und Kurzbeschreibungen\
+    \ von Wildbienenarten\n\u2502   \u251C\u2500\u2500  Merkmale und Beschreibungen\
+    \ einzelner Wildbienenarten\n\u2502   \u2514\u2500\u2500  Beschreibungen und Kurzbeschreibungen\
+    \ von Wildbienenarten\n\u251C\u2500\u2500  Lebensweise und Fortpflanzung von Kuckuckshummeln\n\
+    \u2502   \u251C\u2500\u2500  Fortpflanzungsverhalten von Kuckuckshummeln\n\u2502\
+    \   \u251C\u2500\u2500  \xDCberwinterungs- und Fortpflanzungsverhalten\n\u2502\
+    \   \u251C\u2500\u2500  Lebensraum und Nahrungsaufnahme\n\u2502   \u2514\u2500\
+    \u2500  Vorkommen und Lebensweise der Kuckuckshummel\n\u251C\u2500\u2500  Nahrung\
+    \ und Pollensammelverhalten\n\u251C\u2500\u2500  Wirtsbiene\n\u251C\u2500\u2500\
+    \  Entdeckungsgeschichte der Efeu-Seidenbiene\n\u2502   \u251C\u2500\u2500  Entdeckung\
+    \ und Rechtliche Aspekte der Efeu-Seidenbiene\n\u2502   \u251C\u2500\u2500  Taxonomie\
+    \ der Schwarzen M\xF6rtelbiene\n\u2502   \u251C\u2500\u2500  Genom und Evolution\
+    \ der Westlichen Honigbiene\n\u2502   \u251C\u2500\u2500  Die Bienen in der Kultur\
+    \ und Heraldik\n\u2502   \u251C\u2500\u2500  Wissenschaftliche Forschung und Anwendung\
+    \ der Mauerbiene\n\u2502   \u251C\u2500\u2500  Sinneswahrnehmung und Verteidigungsmechanismen\
+    \ der Efeu-Seidenbiene\n\u2502   \u2514\u2500\u2500  Nestbau und Nesthygiene\n\
+    \u251C\u2500\u2500  Baumaterialien und Requisiten\n\u2514\u2500\u2500  Etymologie\
+    \ der Wildbienenarten\n"
 chunks_df:
   filename: chunks_df.pkl
   type: DataFrame
   columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label,
-    txt, n_tokens, node_id
+    txt, n_tokens
   n_rows: 3412
   overwrite: false
   id: 2
@@ -673,10 +707,10 @@ chunks_df:
 
         '
   data_df:
-    type: DataFrame
     filename: data_df.pkl
-    n_rows: 3412
+    type: DataFrame
     columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label
+    n_rows: 3412
     overwrite: false
 llm_pipe:
   class_parts:
@@ -739,4 +773,6 @@ emb_tree:
   height: 4
 llm_tree:
   filename: llm_tree.pkl
-  type: NoneType
+  type: Node
+  size: 3449
+  height: 4

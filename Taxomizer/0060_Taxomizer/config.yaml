@@ -597,6 +597,20 @@ tree_info:
     branching: 201.0
     avg_degree: 0.9997
     avg_balance: 0.0003
+  toc: " Wildbienen\n\u251C\u2500\u2500  Etymologie der Wildbienen\n\u251C\u2500\u2500\
+    \  Baumaterialien und Requisiten\n\u251C\u2500\u2500  Gef\xE4hrdung und Schutz\
+    \ von Wildbienen\n\u251C\u2500\u2500  Die Biene in der Kultur und Heraldik\n\u251C\
+    \u2500\u2500  Kuckuckshummeln\n\u2502   \u251C\u2500\u2500  Umgangssprachliche\
+    \ Bezeichnungen f\xFCr Kuckuckshummeln\n\u2502   \u251C\u2500\u2500  Wirtsbienen\n\
+    \u2502   \u251C\u2500\u2500  Kuckuckshummeln als Brutparasiten\n\u2502   \u251C\
+    \u2500\u2500  Chrysididae (Kuckuckswespen) in Mitteleuropa\n\u2502   \u2514\u2500\
+    \u2500  Taxonomische Aspekte der Kuckuckshummeln\n\u251C\u2500\u2500  Nahrung\
+    \ und Nahrungsverhalten\n\u251C\u2500\u2500  Vorkommen und Verbreitung der D\xFC\
+    nen-Steppenbiene\n\u251C\u2500\u2500  Entdeckungsgeschichte der Efeu-Seidenbiene\n\
+    \u251C\u2500\u2500  Kennzeichen und Merkmale von Wildbienen\n\u251C\u2500\u2500\
+    \  Verhaltens- und Nestbauaspekte der Gro\xDFen Wollbienen\n\u251C\u2500\u2500\
+    \  Bienen im Recht und Wissenschaft\n\u2514\u2500\u2500  Mauerbiene in der Landwirtschaft:\
+    \ Best\xE4ubung und Vermehrung\n"
 chunks_df:
   filename: chunks_df.pkl
   type: DataFrame
@@ -732,4 +746,6 @@ emb_tree:
   height: 3
 llm_tree:
   filename: llm_tree.pkl
-  type: NoneType
+  type: Node
+  size: 3430
+  height: 3

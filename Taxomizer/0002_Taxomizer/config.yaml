@@ -4,6 +4,7 @@ lab_name: injection_lab
 class_parts:
 - Taxomizer
 module_path: beesup_llm.injection.taxomizing
+chunk_txt_template: '{p}: {o}'
 chunk_txt_key: spo
 chunk_emb_key: emb
 linkage_args:
@@ -96,10 +97,12 @@ emb_tree:
 llm_tree:
   filename: llm_tree.pkl
   type: dict
+tree_info: {}
 chunks_df:
   filename: chunks_df.pkl
   type: DataFrame
-  columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label
+  columns: kidx, spo, s, p, o, source_name, attr_type, n_units, n_words, emb, label,
+    n_tokens
   n_rows: 3412
   overwrite: false
 llm_pipe:

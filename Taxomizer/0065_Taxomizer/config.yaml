@@ -589,6 +589,11 @@ tree_info:
     branching: 568.6667
     avg_degree: 0.9997
     avg_balance: 0.0
+  toc: " Wildbienen\n\u251C\u2500\u2500  Etymologie der Wildbienen\n\u251C\u2500\u2500\
+    \  Baumaterialien und Requisiten\n\u251C\u2500\u2500  Schutz und F\xF6rderung\
+    \ von gef\xE4hrdeten Wildbienenarten\n\u251C\u2500\u2500  Nahrung und Nahrungssuche\n\
+    \u251C\u2500\u2500  Lebensraum und Habitatbedingungen von Wildbienen\n\u2514\u2500\
+    \u2500  Entdeckungsgeschichte der Efeu-Seidenbiene\n"
 chunks_df:
   filename: chunks_df.pkl
   type: DataFrame
@@ -724,4 +729,6 @@ emb_tree:
   height: 2
 llm_tree:
   filename: llm_tree.pkl
-  type: NoneType
+  type: Node
+  size: 3419
+  height: 2
